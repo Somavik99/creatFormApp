@@ -1,18 +1,19 @@
+import "./App.css";
+import Forms from "./Components/Forms/Forms";
 
-import './App.css'
 
 function App() {
   
 
+
   return (
     <>
       <div>
-      <h1>Hello</h1>
-      
+        <h1>Hello</h1>
+        <Forms />
       </div>
-
     </>
-  )
+  );
 }
 
-export default App
+export default App;
