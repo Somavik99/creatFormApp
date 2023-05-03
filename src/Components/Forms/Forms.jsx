@@ -20,7 +20,7 @@ const Forms = () => {
         <PersonalDetails register={register} errors={errors} />
       </div>
       <div>
-        <ContactDetails />
+        <ContactDetails register={register} errors={errors} />
       </div>
 
       <div>

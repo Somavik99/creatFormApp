@@ -31,6 +31,8 @@ const PersonalDetails = ({register, errors}) => {
       <div>
         <label>Govt. Issued ID<span style={{color:"red"}}>*</span>:</label>
       <GovtIssuedID register={register} errors={errors}/>
+      <input type="text" name="Govt" {...register("Govt",{required:"true"})} />
+{errors.Govt?.type === "required" && <p style={{color:"red"}}>This Field is required</p>}
       </div>
     </div>
   )
