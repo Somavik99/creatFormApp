@@ -1,3 +1,4 @@
+import GovtIssuedID from "./GovtIssuedID/GovtIssuedIDSelect"
 
 
 const PersonalDetails = ({register, errors}) => {
@@ -8,7 +9,7 @@ const PersonalDetails = ({register, errors}) => {
     <div>
       <h3>Personal Details</h3>
       <div>
-        <label>Name:</label>
+        <label>Name<span style={{color:"red"}}>*</span>:</label>
       <input type="text" name="Name" {...register("Name",{required:true})} />
       {errors.Name?.type==="required"&& <p style={{color:"red"}}>this field is required</p>}
       </div>
@@ -18,17 +19,18 @@ const PersonalDetails = ({register, errors}) => {
       {errors.DobA?.type==="required"&& <p style={{color:"red"}}>this field is required</p>}
       </div>
       <div>
-        <label>Sex:</label>
+        <label>Sex<span style={{color:"red"}}>*</span>:</label>
       <input type="text" {...register("Sex",{required:true})} />
       {errors.Sex?.type==="required"&& <p style={{color:"red"}}>this field is required</p>}
       </div>
       <div>
-        <label>Mobile:</label>
-      <input type="text" {...register("Mobile")} />
+        <label>Mobile<span style={{color:"red"}}>*</span>:</label>
+      <input type="text" {...register("Mobile", {required:true})} />
+      {errors.Mobile?.type==="required"&& <p style={{color:"red"}}>this field is required</p>}
       </div>
       <div>
-        <label>Govt. Issued ID:</label>
-      <input type="text"/>
+        <label>Govt. Issued ID<span style={{color:"red"}}>*</span>:</label>
+      <GovtIssuedID register={register} errors={errors}/>
       </div>
     </div>
   )
