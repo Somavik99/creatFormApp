@@ -3,7 +3,7 @@ import "./Address.css";
 import CitySelect from "./City/CitySelect";
 import StateSelect from "./State/StateSelect";
 
-const Address = ({ register }) => {
+const Address = ({ register,errors }) => {
   return (
     <div>
       <h3>Address Details</h3>
