@@ -68,7 +68,7 @@ const OtherDetails = ({ register }) => {
           <label htmlFor="">Blood Group:</label>
           <BloodGroup />
         </div>
-        <div>
+        <div  style={{display:"flex"}}>
           <label htmlFor="">Nationality:</label>
           <select
             name="NationSelect"

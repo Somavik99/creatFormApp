@@ -11,7 +11,7 @@ const Address = ({ register,errors }) => {
         <div>
           <label htmlFor="">Address:</label>
           <input type="text" name="Address" {...register("Address")} />
-          
+          {errors.Address && <p>{errors.Address.message}</p>}
         </div>
         <div style={{display:"flex"}}>
           <label htmlFor="">State:</label>
@@ -19,7 +19,7 @@ const Address = ({ register,errors }) => {
         </div>
         <div>
           <label htmlFor="">City:</label>
-          <CitySelect />
+          <CitySelect register={register} errors={errors} />
         </div>
         <div style={{display:"flex"}}>
           <label htmlFor="">Country:</label>

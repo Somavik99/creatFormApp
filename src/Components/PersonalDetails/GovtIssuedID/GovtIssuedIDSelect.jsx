@@ -10,32 +10,37 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
 
   return (
     <div style={{ display: "flex" }}>
-      <select onChange={(e) => getID(e)} style={{ marginRight: "5px", height:"35px" }}>
+      <select
+        onChange={(e) => getID(e)}
+        style={{ marginRight: "5px", height: "35px" }}
+      >
         <option value={null}>---ID Type---</option>
         <option value="Adhaar">Adhaar Card</option>
         <option value="Pan">Pan Card</option>
       </select>
 
       {GovtID === "Adhaar" ? (
-        <>
+        <p style={{display:"flex"}}>
           <input
             type="text"
             name="adhaar"
             {...register("adhaar", { maxLength: 12 })}
             placeholder="Enter Adhaar Number"
-            style={{height:"30px"}}
+            style={{ height: "30px" }}
           />
           {errors.adhaar && (
-            <p style={{ color: "red",height:"30px" }}>{errors.adhaar.message}</p>
+            <p style={{ color: "red", height: "30px" }}>
+              {errors.adhaar.message}
+            </p>
           )}
-        </>
+        </p>
       ) : GovtID === "Pan" ? (
-        <p style={{ display: "grid", gridTemplateColumns: "repeat(2,0.5fr)" }}>
+        <p style={{ display: "flex" }}>
           <input
             type="text"
             name="PanIn"
             placeholder="Enter Pan Number"
-            style={{height:"30px"}}
+            style={{ height: "30px" }}
             {...register("PanIn", { maxLength: 10 })}
           />
           {errors.PanIn > "maxLength" && (
@@ -45,14 +50,7 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
           )}
         </p>
       ) : (
-        <>
-          <input
-            type="text"
-            name="ID"
-            {...register("ID", { required: true })}
-          />
-          {errors.ID && <p>ID field is required</p>}
-        </>
+        ""
       )}
     </div>
   );
