@@ -2,8 +2,8 @@
 
 const ContactDetails = ({register,errors}) => {
   const options = [
-    { value: "Mister", label: "Mr." },
-    { value: "Misses", label: "Mrs." },
+    { value: "Mr.", label: "Mr." },
+    { value: "Mrs.", label: "Mrs." },
   ];
 
   return (

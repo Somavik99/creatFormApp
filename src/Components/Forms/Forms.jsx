@@ -8,6 +8,8 @@ const Forms = () => {
   const ValidationSubmit = yup.object().shape({
     Name: yup.string().required(),
     Sex: yup.string().required(),
+    Address: yup.string().required(),
+    GDetails: yup.string().required(),
     DobA: yup.number().required().positive().integer(),
     Mobile: yup.number().required().positive().integer(),
     Email: yup.string().email().required(),
