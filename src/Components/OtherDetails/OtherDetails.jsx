@@ -3,7 +3,7 @@ import BloodGroup from "./BloodGroup";
 import "./otherD.css";
 // import Select from "react-select";
 
-const OtherDetails = ({ register, errors }) => {
+const OtherDetails = ({ register }) => {
   const [MultiSelect, setMultiSelect] = useState({
     NationSelect: "",
     Religion: "",
@@ -44,13 +44,7 @@ const OtherDetails = ({ register, errors }) => {
             onChange={(e) => MultiChange(e)}
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
           >
-            <option
-              defaultValue={MultiSelect}
-              disabled
-              placeholder="Select religion"
-            >
-              Select religion
-            </option>
+            <option defaultValue={MultiSelect} value={null}></option>
             <option value="Hindu">Hindu</option>
             <option value="Muslim">Muslim</option>
             <option value="Sikh">Sikh</option>
@@ -65,16 +59,12 @@ const OtherDetails = ({ register, errors }) => {
             {...register("Marriage")}
           /> */}
           <select name="Marital" {...register("Marital")}>
-            <option disabled selected>
-              Marital Status
-            </option>
             {optionsM.map((optM, ind) => (
               <option key={ind} value={optM.value}>
                 {optM.label}
               </option>
             ))}
           </select>
-          {errors.Marital && <p>{errors.Marital.message}</p>}
         </div>
         <div style={{ display: "flex" }}>
           <label htmlFor="">Blood Group:</label>
@@ -87,9 +77,7 @@ const OtherDetails = ({ register, errors }) => {
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
             onChange={(e) => MultiChange(e)}
           >
-            <option disabled selected>
-              Enter nationality
-            </option>
+            <option placeholder="Enter Nationality" value={null}></option>
             <option value="Indian">Indian</option>
             <option value="Other">Other</option>
           </select>

@@ -1,16 +1,15 @@
-
 const SexSelect = ({register,errors}) => {
   return (
     <div>
-         <select name="Sex"  {...register("Sex",{required:true})}>
-      <option  disabled selected>Enter sex</option>
+      <select name="Sex" {...register("Sex")} placeholder="Select Sex">
+        <option value={null}></option>
         <option value="M">Male</option>
         <option value="F">Female</option>
         <option value="ND">Not Defining</option>
-          </select>
-          {errors.Sex?.type==="required" && <p style={{ color: "red" }}>Sex field is required</p>}
+      </select>
+      {errors.Sex && <p style={{color:"red"}} >{errors.Sex.message}</p> } 
     </div>
-  )
-}
+  );
+};
 
-export default SexSelect
+export default SexSelect;

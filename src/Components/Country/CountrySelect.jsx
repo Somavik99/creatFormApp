@@ -16,7 +16,7 @@ const CountrySelect = ({ register, errors }) => {
   return (
     <div style={{display:"flex"}}>
       <select onChange={(e) => HandleChange(e)} style={{ width:"150px", marginRight:"10px"}}>
-        <option selected disabled>Enter Country</option>
+       
         {Options.map((optC, indi) => {
           return (
             <option key={indi} value={optC.value}>
@@ -33,7 +33,7 @@ const CountrySelect = ({ register, errors }) => {
             name="Foreign"
             {...register("Foreign")}
           />
-          {errors.NriInp && <p style={{color:"red"}}>This Field Required</p>}
+          {errors.Foreign && <p style={{color:"red"}}>This Field Required</p>}
         </div>
       ) : (
         ""

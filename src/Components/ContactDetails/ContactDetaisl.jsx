@@ -12,8 +12,8 @@ const ContactDetails = ({register,errors}) => {
       <div className="Contact">
         <div>
           <label htmlFor="">Guardian Details:</label>
-          <select {...register("select",{required:true})} style={{marginRight:"10px"}}>
-            <option disabled selected  >Enter Prefix</option>
+          <select name="select" {...register("select",{required:true})} style={{marginRight:"10px"}}>
+            {/* <option disabled selected  >Enter Prefix</option> */}
             {options.map((opt, index) => {
               return (
                 <option value={opt.value} key={index}>
@@ -23,7 +23,7 @@ const ContactDetails = ({register,errors}) => {
             })}
           </select>
           <input type="text" name="GDetails" {...register("GDetails")} />
-          {errors.select  && <p>{errors.select.message}</p>}
+          {errors.GDetails  && <p style={{color:"red",}}>{errors.GDetails.message}</p>}
         </div>
         <div>
             <label htmlFor="Email">Email:</label>

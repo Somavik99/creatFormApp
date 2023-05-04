@@ -33,7 +33,6 @@ const StateSelect = () => {
   return (
     <div>
       <select>
-        <option disabled selected>Select State</option>
         {States.map((StateOpt, i) => {
           return (
             <option key={i} value={StateOpt.value}>
