@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CountrySelect = () => {
+const CountrySelect = ({ register, errors }) => {
   const [ShowInput, setShowInput] = useState();
 
   const Options = [
@@ -26,7 +26,13 @@ const CountrySelect = () => {
       </select>
       {ShowInput === "NRI" ? (
         <div>
-          <input type="text" placeholder="Enter details" />
+          <input
+            type="text"
+            placeholder="Enter details"
+            name="Foreign"
+            {...register("Foreign")}
+          />
+          {errors.NriInp && <p style={{color:"red"}}>This Field Required</p>}
         </div>
       ) : (
         ""

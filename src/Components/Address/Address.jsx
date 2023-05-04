@@ -23,7 +23,7 @@ const Address = ({ register,errors }) => {
         </div>
         <div>
           <label htmlFor="">Country:</label>
-          <CountrySelect />
+          <CountrySelect register={register} errors={errors} />
         </div>
         <div>
           <label htmlFor="">Pin Code:</label>

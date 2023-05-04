@@ -4,9 +4,11 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Address from "../Address/Address";
+import OtherDetails from "../OtherDetails/OtherDetails";
 const Forms = () => {
   const ValidationSubmit = yup.object().shape({
     Name: yup.string().required(),
+    NriInp:yup.string().required(),
     Sex: yup.string().required(),
     Address: yup.string().required(),
     GDetails: yup.string().required(),
@@ -40,8 +42,12 @@ const Forms = () => {
         <Address register={register} errors={errors} />
       </div>
       <div>
-        <input type="submit" />
+        <OtherDetails register={register} errors={errors} />
       </div>
+      <div>
+        <button>CANCEL</button>
+        <input type="submit" value="SUBMIT" />
+      </div> 
     </form>
   );
 };
