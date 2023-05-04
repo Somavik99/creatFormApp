@@ -17,7 +17,7 @@ const Forms = () => {
     Sex:yup.string().required(),
     adhaar:yup.number().required().positive().integer(),
     PanIn:yup.number().required().positive().integer(),
-    GDetails: yup.string().required(),
+    GuardianDetails: yup.string().required(),
     DobA: yup.number().required().positive().integer(),
     Mobile: yup.number().required().positive().integer(),
     Email: yup.string().email().required(),

@@ -1,6 +1,6 @@
 import "./Contact.css";
 
-const ContactDetails = ({register,errors}) => {
+const ContactDetails = ({ register, errors }) => {
   const options = [
     { value: "Mr.", label: "Mr." },
     { value: "Mrs.", label: "Mrs." },
@@ -8,12 +8,16 @@ const ContactDetails = ({register,errors}) => {
 
   return (
     <div>
-      <h3 style={{textDecorationLine:"underline"}}>Contact Details</h3>
+      <h3 style={{ textDecorationLine: "underline" }}>Contact Details</h3>
       <div className="Contact">
         <div>
           <label htmlFor="">Guardian Details:</label>
-          <select name="select" {...register("select")} style={{marginRight:"10px"}}>
-            <option value={null} ></option>
+          <select
+            name="select"
+            {...register("select")}
+            style={{ marginRight: "10px" }}
+          >
+            <option value={null}></option>
             {options.map((opt, index) => {
               return (
                 <option value={opt.value} key={index}>
@@ -22,17 +26,23 @@ const ContactDetails = ({register,errors}) => {
               );
             })}
           </select>
-          {errors.select && <p>{errors.select.message}</p>}
-          <input type="text" name="GuardianDetails" {...register("GuardianDetails")} />
-          {errors.GuardianDetails  && <p style={{color:"red",}}>{errors.GuardianDetails.message}</p>}
+
+          <input 
+            type="text"
+            name="GuardianDetails"
+            {...register("GuardianDetails")}
+          />
+          {errors.GuardianDetails && (
+            <p style={{ color: "red" }}>{errors.GuardianDetails.message}</p>
+          )}
         </div>
         <div>
-            <label htmlFor="Email">Email:</label>
-            <input type="email" name="Email"  {...register("Email")} />
+          <label htmlFor="Email">Email:</label>
+          <input type="email" name="Email" {...register("Email")} />
         </div>
         <div>
-            <label htmlFor="Emergency">Emergency Contact No. :</label>
-            <input type="text" name="Emergency" {...register("Emergency")}  />
+          <label htmlFor="Emergency">Emergency Contact No. :</label>
+          <input type="text" name="Emergency" {...register("Emergency")} />
         </div>
       </div>
     </div>
