@@ -17,9 +17,9 @@ const CountrySelect = ({ register, errors }) => {
     <div style={{display:"flex"}}>
       <select onChange={(e) => HandleChange(e)} style={{ width:"150px", marginRight:"10px"}}>
         <option selected disabled>Enter Country</option>
-        {Options.map((optC, ind) => {
+        {Options.map((optC, indi) => {
           return (
-            <option key={ind} value={optC.value}>
+            <option key={indi} value={optC.value}>
               {optC.label}
             </option>
           );

@@ -27,22 +27,18 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
             placeholder="Enter Adhaar Number"
           />
           {errors.adhaar && (
-            <p style={{ color: "red" }}>
-             {errors.adhaar.message}
-            </p>
+            <p style={{ color: "red" }}>{errors.adhaar.message}</p>
           )}
-        
         </>
       ) : GovtID === "Pan" ? (
-        <p style={{display:"grid",gridTemplateColumns:"repeat(2,0.5fr)"}}>
-          
+        <p style={{ display: "grid", gridTemplateColumns: "repeat(2,0.5fr)" }}>
           <input
             type="text"
             name="PanIn"
             placeholder="Enter Pan Number"
             {...register("PanIn", { maxLength: 10 })}
           />
-          {errors.PanIn != "maxLength" && (
+          {errors.PanIn > "maxLength" && (
             <p style={{ color: "red", margin: "0", padding: "0" }}>
               Enter 10 digit Pan Number
             </p>
@@ -50,7 +46,6 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
         </p>
       ) : (
         <>
-          {" "}
           <input
             type="text"
             name="ID"

@@ -12,9 +12,9 @@ const Forms = () => {
   const ValidationSubmit = yup.object().shape({
     Name: yup.string().required(),
     NriInp:yup.string().required(),
-    Sex: yup.string().required(),
     Address: yup.string().required(),
-    adhaar:yup.number().required().positive().integer().min(1).max(12345678910212),
+    Sex:yup.string().required(),
+    adhaar:yup.number().required().positive().integer(),
     PanIn:yup.number().required().positive().integer(),
     GDetails: yup.string().required(),
     DobA: yup.number().required().positive().integer(),
