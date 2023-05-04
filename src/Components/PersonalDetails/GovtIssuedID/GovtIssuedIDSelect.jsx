@@ -22,18 +22,19 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
         <>
           <input
             type="text"
-            name="GovtIn"
-            {...register("GovtIn", { maxLength: 12,valuAsNumber:true })}
+            name="adhaar"
+            {...register("adhaar", { maxLength: 12 })}
             placeholder="Enter Adhaar Number"
           />
-          {errors.GovtIn != "maxLength" && (
-            <p style={{ color: "red", margin: "0", padding: "0" }}>
-              Enter 12 digit Adhaar pin
+          {errors.adhaar && (
+            <p style={{ color: "red" }}>
+             {errors.adhaar.message}
             </p>
           )}
+        
         </>
       ) : GovtID === "Pan" ? (
-        <>
+        <p style={{display:"grid",gridTemplateColumns:"repeat(2,0.5fr)"}}>
           
           <input
             type="text"
@@ -46,7 +47,7 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
               Enter 10 digit Pan Number
             </p>
           )}
-        </>
+        </p>
       ) : (
         <>
           {" "}

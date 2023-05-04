@@ -30,8 +30,8 @@ const ContactDetails = ({register,errors}) => {
             <input type="email" name="Email"  {...register("Email")} />
         </div>
         <div>
-            <label htmlFor="Email">Emergency Contact No. :</label>
-            <input type="email" name="Email" {...register("Email")}  />
+            <label htmlFor="Emergency">Emergency Contact No. :</label>
+            <input type="text" name="Emergency" {...register("Emergency")}  />
         </div>
       </div>
     </div>

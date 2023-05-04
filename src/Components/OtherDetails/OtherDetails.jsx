@@ -1,12 +1,12 @@
 import { useState } from "react";
 import BloodGroup from "./BloodGroup";
 import "./otherD.css";
-import Select from "react-select";
+// import Select from "react-select";
 
-const OtherDetails = ({register}) => {
+const OtherDetails = ({ register }) => {
   const [MultiSelect, setMultiSelect] = useState({
     NationSelect: "",
-    Religion:""
+    Religion: "",
   });
 
   const MultiChange = (e) => {
@@ -17,18 +17,40 @@ const OtherDetails = ({register}) => {
     });
   };
 
+  const optionsM = [
+    { value: "Single", label: "Single" },
+    { value: "Married", label: "Married" },
+    { value: "Divorcee", label: "Divorcee" },
+    { value: "Widowed", label: "Widowed" },
+  ];
+
   return (
     <div>
-      <h3 style={{textDecorationLine:"underline"}}>Other Details:</h3>
+      <h3 style={{ textDecorationLine: "underline" }}>Other Details:</h3>
       <div className="OtherContainer">
         <div>
           <label htmlFor="">Occupation:</label>
-          <input type="text" {...register("Occupation")}  style={{ marginLeft: "8px", width: "200px", height: "30px" }}/>
+          <input
+            type="text"
+            {...register("Occupation")}
+            style={{ marginLeft: "8px", width: "200px", height: "30px" }}
+          />
         </div>
         <div>
           <label htmlFor="">Religion:</label>
-          <select name="Religion" {...register("Religion")} onChange={(e) => MultiChange(e)} style={{ marginLeft: "8px", width: "200px", height: "35px" }}> 
-            <option defaultValue={MultiSelect} disabled  placeholder="Select religion">Select religion</option>
+          <select
+            name="Religion"
+            {...register("Religion")}
+            onChange={(e) => MultiChange(e)}
+            style={{ marginLeft: "8px", width: "200px", height: "35px" }}
+          >
+            <option
+              defaultValue={MultiSelect}
+              disabled
+              placeholder="Select religion"
+            >
+              Select religion
+            </option>
             <option value="Hindu">Hindu</option>
             <option value="Muslim">Muslim</option>
             <option value="Sikh">Sikh</option>
@@ -36,19 +58,24 @@ const OtherDetails = ({register}) => {
             <option value="DoWT">Do not Want to Specify</option>
           </select>
         </div>
-        <div style={{display:"flex", justifyContent:"center"}}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <label htmlFor="">Marital Status: </label>
-          <Select
-            options={[
-              { value: "Single", label: "Single" },
-              { value: "Married", label: "Married" },
-              { value: "Divorcee", label: "Divorcee" },
-              { value: "Widowed", label: "Widowed" },
-            ]}
+          {/* <Select
+            
             {...register("Marriage")}
-          />
+          /> */}
+          <select name="Marital">
+            <option disabled selected>
+              Marital Status
+            </option>
+            {optionsM.map((optM, ind) => (
+              <option key={ind} value={optM.value}>
+                {optM.label}
+              </option>
+            ))}
+          </select>
         </div>
-        <div style={{display:"flex"}}>
+        <div style={{ display: "flex" }}>
           <label htmlFor="">Blood Group:</label>
           <BloodGroup />
         </div>

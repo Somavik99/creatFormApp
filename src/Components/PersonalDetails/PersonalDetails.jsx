@@ -1,8 +1,13 @@
-import Select from "react-select";
+// import Select from "react-select";
 import GovtIssuedID from "./GovtIssuedID/GovtIssuedIDSelect";
 import "./PersonalDetails.css";
 
 const PersonalDetails = ({ register, errors }) => {
+  const OptionSex = [
+    { value: "M", label: "Male" },
+    { value: "F", label: "Female" },
+    { value: "ND", label: "Not Defining" },
+  ]
   return (
     <div>
       <h3 style={{textDecorationLine:"underline"}}>Personal Details</h3>
@@ -24,7 +29,7 @@ const PersonalDetails = ({ register, errors }) => {
             {...register("DobA", {
               valueAsNumber: true,
             })}
-            aria-invalid={errors.DobA ? "true" : "false"}
+            placeholder="DD/MM/YYY or Age years"
           />
           {errors.DobA && (
             <p style={{ color: "red" }}>
@@ -36,16 +41,20 @@ const PersonalDetails = ({ register, errors }) => {
           <label>
             Sex<span style={{ color: "red" }}>*</span>:
           </label>
-          <Select
-            options={[
-              { value: "M", label: "Male" },
-              { value: "F", label: "Female" },
-              { value: "ND", label: "Not Defining" },
-            ]}
+          {/* <Select
+            options={}
             name="Sex"
-            {...register("Sex")}
-          />
-          {errors.Sex && <p style={{ color: "red" }}>{errors.Sex.message}</p>}
+           
+          /> */}
+          <select name="Sex"  {...register("Sex")}>
+            <option  disabled selected>Sex</option>
+            {
+              OptionSex.map((sex,index)=>{  
+return <option value={sex.value} key={index}>{sex.label}</option>
+              })
+            }
+          </select>
+          {errors.Sex && <p style={{ color: "red" }}>Sex field is required</p>}
         </div>
         <div>
           <label>
