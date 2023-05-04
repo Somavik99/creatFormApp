@@ -5,9 +5,11 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 const Forms = () => {
   const ValidationSubmit = yup.object().shape({
-    name: yup.string().required(),
-    age: yup.number().required().positive().integer(),
-    email: yup.string().email(),
+    Name: yup.string().required(), 
+    Sex: yup.string().required(), 
+    DobA: yup.number().required().positive().integer(),
+    Mobile:yup.number().required().positive().integer(),
+    Email: yup.string().email().required(),
   });
 
   const {

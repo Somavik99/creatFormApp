@@ -29,7 +29,7 @@ const PersonalDetails = ({ register, errors }) => {
         <label>
           Sex<span style={{ color: "red" }}>*</span>:
         </label>
-        <input type="text" {...register("Sex")} />
+        <input type="text" name="Sex" {...register("Sex")} />
         {errors.Sex && <p style={{ color: "red" }}>{errors.Sex.message}</p>}
       </div>
       <div>

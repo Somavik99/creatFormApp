@@ -13,6 +13,7 @@ const ContactDetails = ({register,errors}) => {
         <div>
           <label htmlFor="">Guardian Details:</label>
           <select {...register("select",{required:true})}>
+            <option value={null} disabled>Enter Prefix</option>
             {options.map((opt, index) => {
               return (
                 <option value={opt.value} key={index}>
@@ -30,7 +31,7 @@ const ContactDetails = ({register,errors}) => {
         </div>
         <div>
             <label htmlFor="Email">Emergency Contact No. :</label>
-            <input type="text" name="Text" {...register("Text")}  />
+            <input type="email" name="Email" {...register("Email")}  />
         </div>
       </div>
     </div>
