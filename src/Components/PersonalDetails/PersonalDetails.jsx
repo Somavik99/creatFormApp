@@ -1,56 +1,69 @@
+import Select from "react-select";
 import GovtIssuedID from "./GovtIssuedID/GovtIssuedIDSelect";
-import "./PersonalDetails.css"
+import "./PersonalDetails.css";
 
 const PersonalDetails = ({ register, errors }) => {
   return (
     <div>
-      <h3>Personal Details</h3>
+      <h3 style={{textDecorationLine:"underline"}}>Personal Details</h3>
       <div className="PersonalContainer">
-      <div >
-        <label>
-          Name<span style={{ color: "red" }}>*</span>:
-        </label>
-        <input type="text" name="Name" {...register("Name")} />
-        {errors.Name && <p style={{ color: "red" }}>{errors.Name.message}</p>}
-      </div>
-      <div>
-        <label>
-          Date of Birth or Age<span style={{ color: "red" }}>*</span>:
-        </label>
-        <input
-          type="text"
-          name="DobA"
-          {...register("DobA",{
-            valueAsNumber:true
-          })}
-          aria-invalid={errors.DobA ? "true" : "false"}
-        />
-        {errors.DobA && <p style={{ color: "red" }}>{errors.DobA.message}</p>}
-      </div>
-      <div>
-        <label>
-          Sex<span style={{ color: "red" }}>*</span>:
-        </label>
-        <input type="text" name="Sex" {...register("Sex")} />
-        {errors.Sex && <p style={{ color: "red" }}>{errors.Sex.message}</p>}
-      </div>
-      <div>
-        <label>
-          Mobile<span style={{ color: "red" }}>*</span>:
-        </label>
-        <input type="text" {...register("Mobile")} />
-        {errors.Mobile && (
-          <p style={{ color: "red" }}>t{errors.Mobile.message}</p>
-        )}
-      </div>
-      <div>
-        <label>
-          Govt. Issued ID<span style={{ color: "red" }}>*</span>:
-        </label>
-        <GovtIssuedID register={register} errors={errors} />
-        <input type="text" name="Govt" {...register("Govt")} />
-        {errors.Govt && <p style={{ color: "red" }}>{errors.Govt.message}</p>}
-      </div>
+        <div>
+          <label>
+            Name<span style={{ color: "red" }}>*</span>:
+          </label>
+          <input type="text" name="Name" {...register("Name")} />
+          {errors.Name && <p style={{ color: "red" }}>{errors.Name.message}</p>}
+        </div>
+        <div>
+          <label>
+            Date of Birth or Age<span style={{ color: "red" }}>*</span>:
+          </label>
+          <input
+            type="text"
+            name="DobA"
+            {...register("DobA", {
+              valueAsNumber: true,
+            })}
+            aria-invalid={errors.DobA ? "true" : "false"}
+          />
+          {errors.DobA && (
+            <p style={{ color: "red" }}>
+              Specify Date of Birth or Age
+            </p>
+          )}
+        </div>
+        <div>
+          <label>
+            Sex<span style={{ color: "red" }}>*</span>:
+          </label>
+          <Select
+            options={[
+              { value: "M", label: "Male" },
+              { value: "F", label: "Female" },
+              { value: "ND", label: "Not Defining" },
+            ]}
+            name="Sex"
+            {...register("Sex")}
+          />
+          {errors.Sex && <p style={{ color: "red" }}>{errors.Sex.message}</p>}
+        </div>
+        <div>
+          <label>
+            Mobile<span style={{ color: "red" }}>*</span>:
+          </label>
+          <input type="text" {...register("Mobile")} />
+          {errors.Mobile && (
+            <p style={{ color: "red" }}>Mobile no. is required</p>
+          )}
+        </div>
+        <div>
+          <label>
+            Govt. Issued ID<span style={{ color: "red" }}>*</span>:
+          </label>
+          <GovtIssuedID register={register} errors={errors} />
+          <input type="text" name="Govt" {...register("Govt")} />
+          {errors.Govt && <p style={{ color: "red" }}>{errors.Govt.message}</p>}
+        </div>
       </div>
     </div>
   );

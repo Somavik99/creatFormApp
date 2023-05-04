@@ -5,6 +5,9 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Address from "../Address/Address";
 import OtherDetails from "../OtherDetails/OtherDetails";
+import "./Forms.css"
+
+
 const Forms = () => {
   const ValidationSubmit = yup.object().shape({
     Name: yup.string().required(),
@@ -32,6 +35,7 @@ const Forms = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={{border:"2px solid black", margin:"2%",padding:"50px"}}>
+      <h1>Details Submission Form</h1>
       <div>
         <PersonalDetails register={register} errors={errors} />
       </div>

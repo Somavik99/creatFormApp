@@ -5,3 +5,8 @@
     grid-template-columns: repeat(3, 1fr);
     row-gap: 10px;
 }
+
+p{
+    margin: 0;
+    padding: 0;
+}

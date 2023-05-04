@@ -6,8 +6,8 @@ import StateSelect from "./State/StateSelect";
 const Address = ({ register,errors }) => {
   return (
     <div>
-      <h3>Address Details</h3>
-      <div>
+      <h3 style={{textDecorationLine:"underline"}}>Address Details</h3>
+      <div className="AddressD">
         <div>
           <label htmlFor="">Address:</label>
           <input type="text" name="Address" {...register("Address")} />

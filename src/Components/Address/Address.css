@@ -1,0 +1,7 @@
+.AddressD{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 0.5fr);
+    row-gap: 10px;
+}

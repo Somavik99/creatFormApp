@@ -8,8 +8,8 @@ const ContactDetails = ({register,errors}) => {
 
   return (
     <div>
-      <h3>Contact Details</h3>
-      <div>
+      <h3 style={{textDecorationLine:"underline"}}>Contact Details</h3>
+      <div className="Contact">
         <div>
           <label htmlFor="">Guardian Details:</label>
           <select {...register("select",{required:true})}>

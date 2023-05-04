@@ -27,7 +27,7 @@ const OtherDetails = ({register}) => {
         </div>
         <div>
           <label htmlFor="">Religion:</label>
-          <select name="Religion" onChange={(e) => MultiChange(e)} style={{ marginLeft: "8px", width: "200px", height: "35px" }}> 
+          <select name="Religion" {...register("Religion")} onChange={(e) => MultiChange(e)} style={{ marginLeft: "8px", width: "200px", height: "35px" }}> 
             <option defaultValue={MultiSelect} disabled  placeholder="Select religion">Select religion</option>
             <option value="Hindu">Hindu</option>
             <option value="Muslim">Muslim</option>
@@ -48,7 +48,7 @@ const OtherDetails = ({register}) => {
             {...register("Marriage")}
           />
         </div>
-        <div>
+        <div style={{display:"flex"}}>
           <label htmlFor="">Blood Group:</label>
           <BloodGroup />
         </div>
