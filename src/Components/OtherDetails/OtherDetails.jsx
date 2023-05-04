@@ -19,11 +19,11 @@ const OtherDetails = ({register}) => {
 
   return (
     <div>
-      <h3>Other Details:</h3>
+      <h3 style={{textDecorationLine:"underline"}}>Other Details:</h3>
       <div className="OtherContainer">
         <div>
           <label htmlFor="">Occupation:</label>
-          <input type="text" {...register("Occupation")} />
+          <input type="text" {...register("Occupation")}  style={{ marginLeft: "8px", width: "200px", height: "30px" }}/>
         </div>
         <div>
           <label htmlFor="">Religion:</label>
@@ -36,7 +36,7 @@ const OtherDetails = ({register}) => {
             <option value="DoWT">Do not Want to Specify</option>
           </select>
         </div>
-        <div style={{display:"grid", justifyContent:"center"}}>
+        <div style={{display:"flex", justifyContent:"center"}}>
           <label htmlFor="">Marital Status: </label>
           <Select
             options={[
@@ -45,6 +45,7 @@ const OtherDetails = ({register}) => {
               { value: "Divorcee", label: "Divorcee" },
               { value: "Widowed", label: "Widowed" },
             ]}
+            {...register("Marriage")}
           />
         </div>
         <div>

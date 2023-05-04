@@ -31,7 +31,7 @@ const Forms = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{border:"2px solid black", margin:"2%",padding:"3%"}}>
+    <form onSubmit={handleSubmit(onSubmit)} style={{border:"2px solid black", margin:"2%",padding:"50px"}}>
       <div>
         <PersonalDetails register={register} errors={errors} />
       </div>

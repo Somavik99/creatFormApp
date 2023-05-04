@@ -1,4 +1,4 @@
-
+import "./Contact.css";
 
 const ContactDetails = ({register,errors}) => {
   const options = [
