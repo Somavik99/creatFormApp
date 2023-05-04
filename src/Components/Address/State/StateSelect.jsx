@@ -33,6 +33,7 @@ const StateSelect = () => {
   return (
     <div>
       <select>
+        <option value={null}>{null}</option>
         {States.map((StateOpt, i) => {
           return (
             <option key={i} value={StateOpt.value}>

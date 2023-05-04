@@ -11,6 +11,7 @@ import "./Forms.css"
 const Forms = () => {
   const ValidationSubmit = yup.object().shape({
     Name: yup.string().required(),
+    Foreign:yup.string().required(),
     NriInp:yup.string().required(),
     Address: yup.string().required(),
     Sex:yup.string().required(),
@@ -32,6 +33,7 @@ const Forms = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    alert(JSON.stringify(data))
     localStorage.setItem("data", JSON.stringify(data));
   };
 

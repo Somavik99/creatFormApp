@@ -54,11 +54,9 @@ const OtherDetails = ({ register }) => {
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <label htmlFor="">Marital Status: </label>
-          {/* <Select
-            
-            {...register("Marriage")}
-          /> */}
-          <select name="Marital" {...register("Marital")}>
+
+          <select name="Marital">
+            <option value={null}>{null}</option>
             {optionsM.map((optM, ind) => (
               <option key={ind} value={optM.value}>
                 {optM.label}
