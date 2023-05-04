@@ -31,7 +31,7 @@ const Forms = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} style={{border:"2px solid black", margin:"2%",padding:"3%"}}>
       <div>
         <PersonalDetails register={register} errors={errors} />
       </div>
@@ -44,7 +44,7 @@ const Forms = () => {
       <div>
         <OtherDetails register={register} errors={errors} />
       </div>
-      <div>
+      <div style={{float:"right"}}>
         <button>CANCEL</button>
         <input type="submit" value="SUBMIT" />
       </div> 

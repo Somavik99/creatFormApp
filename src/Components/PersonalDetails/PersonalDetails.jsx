@@ -1,10 +1,12 @@
 import GovtIssuedID from "./GovtIssuedID/GovtIssuedIDSelect";
+import "./PersonalDetails.css"
 
 const PersonalDetails = ({ register, errors }) => {
   return (
     <div>
       <h3>Personal Details</h3>
-      <div>
+      <div className="PersonalContainer">
+      <div >
         <label>
           Name<span style={{ color: "red" }}>*</span>:
         </label>
@@ -48,6 +50,7 @@ const PersonalDetails = ({ register, errors }) => {
         <GovtIssuedID register={register} errors={errors} />
         <input type="text" name="Govt" {...register("Govt")} />
         {errors.Govt && <p style={{ color: "red" }}>{errors.Govt.message}</p>}
+      </div>
       </div>
     </div>
   );
