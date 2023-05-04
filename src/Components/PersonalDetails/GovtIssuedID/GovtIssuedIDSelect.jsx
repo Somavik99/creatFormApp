@@ -1,20 +1,48 @@
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 
-const [GovtID, setDovtID] = useState()
+const GovtIssuedIDSelect = ({ register, errors }) => {
+  const [GovtID, setGovtID] = useState();
 
-const GovtIssuedID = forwardRef(({ onChange, onBlur,  label,register,errors }, ref) => (
+  const getID = (e) => {
+    const getG = e.target.value;
+    setGovtID(getG);
+  };
 
-  
-  <>
-    <label>{label}</label>
-    <select name="GovtID"  placeholder="ID Type" ref={ref} onChange={onChange} onBlur={onBlur} {...register("GovtID")}>
-      <option value={null} disabled="true" >Select ID</option>
-      <option value="Adhaar" id="Adhaar">Adhaar Card</option>
-      <option value="Pan" id="Pan">Pan Card</option>
-    </select>
-          <input type="text" name="Govt" {...register("Govt")} />
-          {errors.Govt && <p style={{ color: "red" }}>{errors.Govt.message}</p>}
-  </>
-));
+  return (
+    <div>
+      <select onChange={(e) => getID(e)}>
+        <option disabled selected>
+          ID Type
+        </option>
+        <option value="Adhaar">Adhaar Card</option>
+        <option value="Pan">Pan Card</option>
+      </select>
 
-export default GovtIssuedID;
+      {GovtID === "Adhaar" ? (
+        <>
+       
+          <input
+            type="text"
+            name="GovtIn"
+            {...register("GovtIn", { maxLength: 12})}
+            placeholder="Enter Adhaar Number"
+          />
+          {errors.GovtIn && <p style={{ color: "red", margin:"0",padding:"0" }}>Enter 12 digit Adhaar pin</p>}
+        </>
+      ) : GovtID === "Pan" ? (
+      <>  <input
+          type="text"
+          name="PanIn"
+placeholder="Enter Pan Number"
+          {...register("PanIn", { maxLength: 10 })}
+        />
+        {errors.PanIn && <p style={{ color: "red", margin:"0",padding:"0" }}>Enter 10 digit Pan Number</p> }
+        </>
+      ) : (
+      <> <input type="text" name="ID" {...register("ID",{required:true})} />{errors.ID && <p>ID field is required</p>}</> 
+      )}
+    </div>
+  );
+};
+
+export default GovtIssuedIDSelect;

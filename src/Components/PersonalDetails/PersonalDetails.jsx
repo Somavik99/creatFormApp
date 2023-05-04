@@ -11,8 +11,8 @@ const PersonalDetails = ({ register, errors }) => {
           <label>
             Name<span style={{ color: "red" }}>*</span>:
           </label>
-          <input type="text" name="Name" {...register("Name")} />
-          {errors.Name && <p style={{ color: "red" }}>{errors.Name.message}</p>}
+          <input type="text" name="Name" {...register("Name",{pattern:/^[a-zA-Z ]{8,20}$/})} />
+          {errors.Name && <p style={{ color: "red" }}>Name field is required. Enter valid name</p> }
         </div>
         <div>
           <label>
@@ -56,12 +56,11 @@ const PersonalDetails = ({ register, errors }) => {
             <p style={{ color: "red" }}>Mobile no. is required</p>
           )}
         </div>
-        <div>
+        <div style={{display:"flex"}}>
           <label>
             Govt. Issued ID<span style={{ color: "red" }}>*</span>:
           </label>
           <GovtIssuedID register={register} errors={errors} />
-
         </div>
       </div>
     </div>

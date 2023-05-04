@@ -15,7 +15,8 @@ const CountrySelect = ({ register, errors }) => {
 
   return (
     <div style={{display:"flex"}}>
-      <select onChange={(e) => HandleChange(e)} style={{width:"200px",marginRight:"10px"}}>
+      <select onChange={(e) => HandleChange(e)} style={{ width:"150px", marginRight:"10px"}}>
+        <option selected disabled>Enter Country</option>
         {Options.map((optC, ind) => {
           return (
             <option key={ind} value={optC.value}>

@@ -14,6 +14,8 @@ const Forms = () => {
     NriInp:yup.string().required(),
     Sex: yup.string().required(),
     Address: yup.string().required(),
+    GovtIn:yup.number().required().positive().integer(),
+    PanIn:yup.number().required().positive().integer(),
     GDetails: yup.string().required(),
     DobA: yup.number().required().positive().integer(),
     Mobile: yup.number().required().positive().integer(),
@@ -38,7 +40,7 @@ const Forms = () => {
       <h1>Details Submission Form</h1>
       <div>
         <PersonalDetails register={register} errors={errors} />
-        
+
       </div>
       <div>
         <ContactDetails register={register} errors={errors} />
