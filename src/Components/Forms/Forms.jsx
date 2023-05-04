@@ -36,8 +36,8 @@ const Forms = () => {
   };
 
   return (
-    <form className="FormContainer" onSubmit={handleSubmit(onSubmit)} style={{border:"2px solid black", margin:"2%",padding:"50px"}}>
-      <h1>Details Submission Form</h1>
+    <form className="FormContainer" onSubmit={handleSubmit(onSubmit)} style={{border:"2px solid black", margin:"2%",padding:"5.5pc"}}>
+      <h1 style={{textDecorationLine:"underline"}}>Details Submission Form</h1>
       <div>
         <PersonalDetails register={register} errors={errors} />
 
@@ -51,9 +51,9 @@ const Forms = () => {
       <div>
         <OtherDetails register={register} errors={errors} />
       </div>
-      <div style={{float:"right"}}>
-        <button>CANCEL</button>
-        <input type="submit" value="SUBMIT" />
+      <div style={{float:"right"}} className="BtnContainer">
+        <button className="Cancel">CANCEL</button>
+        <input type="submit" className="Submit" value="SUBMIT" />
       </div> 
     </form>
   );

@@ -1,45 +1,49 @@
-
-
-
 const StateSelect = () => {
   const States = [
-    {value:"Rajasthan",label:"Rajasthan"},
-    {value:"Tamil Nadu",label:" Tamil Nadu"},
-    {value:"Arunachal Pradesh",label:"Arunachal Pradesh"},
-    {value:"Uttar Pradesh",label:"Uttar Pradesh"},
-    {value:"Gujrat",label:"Gujrat"},
-    {value:"Haryana",label:"Haryana"},
-    {value:"Bihar",label:"Bihar"},
-    {value:"Punjab",label:"Punjab"},
-    {value:"Karnataka",label:"Karnataka"},
-    {value:"Kerala",label:"Kerala"},
-    {value:"Nagaland ",label:"Nagaland"},
-    {value:"Assam",label:"Assam"},
-    {value:"Sikkim",label:"Sikkim"},
-    {value:"Himachal Pradesh",label:"Himachal Pradesh"},
-    {value:"Odisha",label:"Odisha"},
-    {value:"Madhya Pradesh",label:"Madhya Pradesh"},
-    {value:"Goa",label:"Goa"},
-    {value:"Meghalaya",label:"Meghalaya"},
-    {value:"Manipur",label:"Manipur"},
-    {value:"Mizoram",label:"Mizoram"},
-    {value:"Jharkhand",label:"Jharkhand"},
-    {value:"Uttara Khand",label:"Uttara  Khand"},
-    {value:"Andhra Pradesh",label:"Andhra Pradesh"},
-    {value:"Chhattisgarh",label:"Chhattisgarh "},
-    {value:"Maharashtra",label:"Maharashtra"},
-    {value:"",label:""},
-    {value:"",label:""},
-    {value:"",label:""},
-    {value:"",label:""},
-  ]
+    { value: "Andhra Pradesh", label: "Andhra Pradesh" },
+    { value: "Arunachal Pradesh", label: "Arunachal Pradesh" },
+    { value: "Assam", label: "Assam" },
+    { value: "Bihar", label: "Bihar" },
+    { value: "Goa", label: "Goa" },
+    { value: "Gujrat", label: "Gujrat" },
+    { value: "Chhattisgarh", label: "Chhattisgarh " },
+    { value: "Haryana", label: "Haryana" },
+    { value: "Himachal Pradesh", label: "Himachal Pradesh" },
+    { value: "Jammu and Kashmir", label: "Jammu and Kashmir" },
+    { value: "Jharkhand", label: "Jharkhand" },
+    { value: "Karnataka", label: "Karnataka" },
+    { value: "Kerala", label: "Kerala" },
+    { value: "Madhya Pradesh", label: "Madhya Pradesh" },
+    { value: "Maharashtra", label: "Maharashtra" },
+    { value: "Meghalaya", label: "Meghalaya" },
+    { value: "Manipur", label: "Manipur" },
+    { value: "Mizoram", label: "Mizoram" },
+    { value: "Nagaland ", label: "Nagaland" },
+    { value: "Odisha", label: "Odisha" },
+    { value: "Punjab", label: "Punjab" },
+    { value: "Rajasthan", label: "Rajasthan" },
+    { value: "Sikkim", label: "Sikkim" },
+    { value: "Tamil Nadu", label: " Tamil Nadu" },
+    { value: "Telengana", label: "Telengana" },
+    { value: "Tripura", label: "Tripura" },
+    { value: "Uttar Pradesh", label: "Uttar Pradesh" },
+    { value: "Uttara Khand", label: "Uttara  Khand" },
+    { value: "West Bengal", label: "West Bengal" },
+  ];
   return (
     <div>
-   <select>
-    <option value=""></option>
-   </select>
+      <select>
+        <option disabled selected>Select State</option>
+        {States.map((StateOpt, i) => {
+          return (
+            <option key={i} value={StateOpt.value}>
+              {StateOpt.label}
+            </option>
+          );
+        })}
+      </select>
     </div>
-  )
-}
+  );
+};
 
-export default StateSelect
+export default StateSelect;

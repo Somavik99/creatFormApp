@@ -10,7 +10,7 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
 
   return (
     <div>
-      <select onChange={(e) => getID(e)}>
+      <select onChange={(e) => getID(e)} style={{marginRight:"5px"}}>
         <option disabled selected>
           ID Type
         </option>

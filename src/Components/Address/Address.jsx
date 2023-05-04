@@ -13,7 +13,7 @@ const Address = ({ register,errors }) => {
           <input type="text" name="Address" {...register("Address")} />
           
         </div>
-        <div>
+        <div style={{display:"flex"}}>
           <label htmlFor="">State:</label>
           <StateSelect />
         </div>

@@ -8,6 +8,8 @@ h1 {
 }
 
 .FormContainer {
+   
+  /* height: 750px;; */
   border-radius: 15px;
   background-image: linear-gradient(
     to left top,
@@ -17,4 +19,20 @@ h1 {
     #006ac1,
     #0068aa
   );
+}
+
+.BtnContainer {
+  display: flex;
+  column-gap: 55px;
+  margin-bottom: 3%;
+}
+
+.Submit {
+  height: 80px;
+  width: 150px;
+}
+.Cancel {
+  height: 80px;
+  width: 150px;
+  border-radius: 5px;
 }
