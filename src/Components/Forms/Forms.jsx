@@ -34,10 +34,11 @@ const Forms = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{border:"2px solid black", margin:"2%",padding:"50px"}}>
+    <form className="FormContainer" onSubmit={handleSubmit(onSubmit)} style={{border:"2px solid black", margin:"2%",padding:"50px"}}>
       <h1>Details Submission Form</h1>
       <div>
         <PersonalDetails register={register} errors={errors} />
+        
       </div>
       <div>
         <ContactDetails register={register} errors={errors} />

@@ -21,7 +21,7 @@ const Address = ({ register,errors }) => {
           <label htmlFor="">City:</label>
           <CitySelect />
         </div>
-        <div>
+        <div style={{display:"flex"}}>
           <label htmlFor="">Country:</label>
           <CountrySelect register={register} errors={errors} />
         </div>

@@ -14,8 +14,8 @@ const CountrySelect = ({ register, errors }) => {
   };
 
   return (
-    <div>
-      <select onChange={(e) => HandleChange(e)}>
+    <div style={{display:"flex"}}>
+      <select onChange={(e) => HandleChange(e)} style={{width:"200px",marginRight:"10px"}}>
         {Options.map((optC, ind) => {
           return (
             <option key={ind} value={optC.value}>

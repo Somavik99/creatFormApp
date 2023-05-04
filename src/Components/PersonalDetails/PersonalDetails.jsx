@@ -32,7 +32,7 @@ const PersonalDetails = ({ register, errors }) => {
             </p>
           )}
         </div>
-        <div>
+        <div style={{display:"flex"}}>
           <label>
             Sex<span style={{ color: "red" }}>*</span>:
           </label>
@@ -61,8 +61,7 @@ const PersonalDetails = ({ register, errors }) => {
             Govt. Issued ID<span style={{ color: "red" }}>*</span>:
           </label>
           <GovtIssuedID register={register} errors={errors} />
-          <input type="text" name="Govt" {...register("Govt")} />
-          {errors.Govt && <p style={{ color: "red" }}>{errors.Govt.message}</p>}
+
         </div>
       </div>
     </div>

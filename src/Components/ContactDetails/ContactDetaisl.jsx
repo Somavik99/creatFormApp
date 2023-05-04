@@ -12,8 +12,8 @@ const ContactDetails = ({register,errors}) => {
       <div className="Contact">
         <div>
           <label htmlFor="">Guardian Details:</label>
-          <select {...register("select",{required:true})}>
-            <option disabled={true} defaultValue={null} >Enter Prefix</option>
+          <select {...register("select",{required:true})} style={{marginRight:"10px"}}>
+            <option disabled selected  >Enter Prefix</option>
             {options.map((opt, index) => {
               return (
                 <option value={opt.value} key={index}>

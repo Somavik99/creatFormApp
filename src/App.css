@@ -2,14 +2,30 @@
     font-size: 20px
 }
 
+.App{
+    background: black;
+}
+
 h3{
     
     font-size: 30px
 }
 
-input{
+label{
+    font-weight:600 ;
+}
 
+select{
     border: 2px solid black;
+    border-radius: 5px;
+}
+
+
+
+input{
+    padding-left: 8px;
+
+    border: 2px solid rgba(76, 75, 75, 0.545);
     outline: none;
     border-radius: 5px;
 }
