@@ -32,7 +32,7 @@ const PersonalDetails = ({ register, errors }) => {
             </p>
           )}
         </div>
-        <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
+        <div style={{display:"flex"}}>
           <label>
             Sex<span style={{ color: "red" }}>*</span>:
           </label>

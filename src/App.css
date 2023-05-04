@@ -25,7 +25,7 @@ select{
 
 input{
     padding-left: 8px;
-
+margin-right: 2px;
     border: 2px solid rgba(76, 75, 75, 0.545);
     outline: none;
     border-radius: 5px;

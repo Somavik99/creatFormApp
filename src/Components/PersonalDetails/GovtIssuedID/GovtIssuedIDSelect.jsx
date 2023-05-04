@@ -9,8 +9,8 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
   };
 
   return (
-    <div>
-      <select onChange={(e) => getID(e)} style={{marginRight:"5px"}}>
+    <div style={{ display: "flex" }}>
+      <select onChange={(e) => getID(e)} style={{ marginRight: "5px" }}>
         <option disabled selected>
           ID Type
         </option>
@@ -20,26 +20,43 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
 
       {GovtID === "Adhaar" ? (
         <>
-       
           <input
             type="text"
             name="GovtIn"
-            {...register("GovtIn", { maxLength: 12})}
+            {...register("GovtIn", { maxLength: 12,valuAsNumber:true })}
             placeholder="Enter Adhaar Number"
           />
-          {errors.GovtIn && <p style={{ color: "red", margin:"0",padding:"0" }}>Enter 12 digit Adhaar pin</p>}
+          {errors.GovtIn != "maxLength" && (
+            <p style={{ color: "red", margin: "0", padding: "0" }}>
+              Enter 12 digit Adhaar pin
+            </p>
+          )}
         </>
       ) : GovtID === "Pan" ? (
-      <>  <input
-          type="text"
-          name="PanIn"
-placeholder="Enter Pan Number"
-          {...register("PanIn", { maxLength: 10 })}
-        />
-        {errors.PanIn && <p style={{ color: "red", margin:"0",padding:"0" }}>Enter 10 digit Pan Number</p> }
+        <>
+          
+          <input
+            type="text"
+            name="PanIn"
+            placeholder="Enter Pan Number"
+            {...register("PanIn", { maxLength: 10 })}
+          />
+          {errors.PanIn != "maxLength" && (
+            <p style={{ color: "red", margin: "0", padding: "0" }}>
+              Enter 10 digit Pan Number
+            </p>
+          )}
         </>
       ) : (
-      <> <input type="text" name="ID" {...register("ID",{required:true})} />{errors.ID && <p>ID field is required</p>}</> 
+        <>
+          {" "}
+          <input
+            type="text"
+            name="ID"
+            {...register("ID", { required: true })}
+          />
+          {errors.ID && <p>ID field is required</p>}
+        </>
       )}
     </div>
   );
