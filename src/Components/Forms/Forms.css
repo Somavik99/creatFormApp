@@ -30,9 +30,13 @@ h1 {
 .Submit {
   height: 80px;
   width: 150px;
+  background-color: rgb(47, 255, 78);
+  border-radius: 5px;
 }
 .Cancel {
   height: 80px;
   width: 150px;
   border-radius: 5px;
+ background-color: red;
+  color: rgb(255, 255, 255);
 }

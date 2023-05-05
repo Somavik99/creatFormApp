@@ -14,9 +14,13 @@ const CountrySelect = ({ register, errors }) => {
   };
 
   return (
-    <div style={{display:"flex"}}>
-      <select onChange={(e) => HandleChange(e)} style={{ width:"150px", marginRight:"10px"}}>
-       
+    <div style={{ display: "flex" }}>
+      <select
+        onChange={(e) => HandleChange(e)}
+        {...register("CountrySelect")}
+        style={{ width: "150px", marginRight: "10px" }}
+      >
+        <option value={null}>{null}</option>
         {Options.map((optC, indi) => {
           return (
             <option key={indi} value={optC.value}>
@@ -25,19 +29,24 @@ const CountrySelect = ({ register, errors }) => {
           );
         })}
       </select>
-      {ShowInput === "NRI" ? (
-        <div>
-          <input
-            type="text"
-            placeholder="Enter details"
-            name="Foreign"
-            {...register("Foreign")}
-          />
-          {errors.Foreign && <p style={{color:"red"}}>This Field Required</p>}
-        </div>
-      ) : (
-        ""
-      )}
+      {errors.CountrySelect && <p>country is required</p>}
+      <>
+        {ShowInput === "NRI" ? (
+          <div>
+            <input
+              type="text"
+              placeholder="Enter details"
+              name="Foreign"
+              {...register("Foreign")}
+            />
+            {errors.Foreign && (
+              <p style={{ color: "red" }}>This Field Required</p>
+            )}
+          </div>
+        ) : (
+          ""
+        )}
+      </>
     </div>
   );
 };

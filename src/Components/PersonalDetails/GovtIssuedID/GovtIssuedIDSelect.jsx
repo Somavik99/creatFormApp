@@ -14,7 +14,7 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
         onChange={(e) => getID(e)}
         style={{ marginRight: "5px", height: "35px" }}
       >
-        <option value={null}>---ID Type---</option>
+        <option value={null}>{null}</option>
         <option value="Adhaar">Adhaar Card</option>
         <option value="Pan">Pan Card</option>
       </select>

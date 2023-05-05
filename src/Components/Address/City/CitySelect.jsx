@@ -22,16 +22,18 @@ const CitySelect = ({ register, errors }) => {
         <option value="Other">Other</option>
       </select>
       {errors.CitySelect && <p>{errors.CitySelect.message}</p>}
-      {showInp === "Other" && (
-        <>
-          <input
-            type="text"
-            placeholder="Enter City/village/town"
-            {...register("cityInp")}
-          />
-          {errors.cityInp && <p>{errors.cityInp.message}</p>}
-        </>
-      )}
+      <>
+        {showInp === "Other" && (
+          <>
+            <input
+              type="text"
+              placeholder="Enter City/village/town"
+              {...register("cityInp")}
+            />
+            {errors.cityInp && <p>{errors.cityInp.message}</p>}
+          </>
+        )}
+      </>
     </div>
   );
 };
