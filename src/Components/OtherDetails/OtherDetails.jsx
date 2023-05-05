@@ -38,7 +38,7 @@ const OtherDetails = ({ register }) => {
             {...register("Religion")}
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
           >
-            <option defaultValue={NationSelect} value={null}></option>
+            <option value={null}></option>
             <option value="Hindu">Hindu</option>
             <option value="Muslim">Muslim</option>
             <option value="Sikh">Sikh</option>
@@ -68,20 +68,17 @@ const OtherDetails = ({ register }) => {
             name="Nationality"
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
             onChange={(e) => MultiChange(e)}
-            {...register("Nationality")}
           >
             <option placeholder="Enter Nationality" value={null}></option>
             <option value="Indian">Indian</option>
             <option value="Other">Other</option>
           </select>
 
-          {NationSelect === "Other" ? (
+          {NationSelect === "Other" && 
             <span>
               <input type="text" placeholder="Please Specify" {...register("NationalityInput")}  style={{marginLeft:"8px"}}/>
-            </span>
-          ) : (
-            ""
-          )}
+            </span>}
+         
         </div>
       </div>
     </div>

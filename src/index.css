@@ -1,8 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Comfortaa&family=Delicious+Handrawn&family=Krub&family=Poppins:wght@300&family=Varela+Round&display=swap");
 * {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Krub", sans-serif;
 }
 
-
-body{
+body {
   background: black;
 }

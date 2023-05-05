@@ -25,18 +25,99 @@ h1 {
   display: flex;
   column-gap: 55px;
   margin-bottom: 3%;
+  
 }
 
 .Submit {
+  font-weight: bolder;
   height: 80px;
   width: 150px;
-  background-color: rgb(47, 255, 78);
-  border-radius: 5px;
+  border-radius: 10px;
+  background-image: linear-gradient(to right top, #00c218, #01cc19, #03d51a, #05df1a, #07e91b);
+  border: none;
+  transition: 0.4s ease;
 }
+
+.Submit:hover {
+  transform: scale(1);
+ border: 2px solid #02ff1fba;
+ color: #02ff20;
+ background-image: none;
+}
+
 .Cancel {
+  font-weight: bolder;
   height: 80px;
   width: 150px;
-  border-radius: 5px;
- background-color: red;
+  border-radius: 10px;
   color: rgb(255, 255, 255);
+  background-image: linear-gradient(to right top, #c70000, #d31a15, #de2a26, #e93836, #f44545);
+  border: none;
+  transition: 0.4s ease;
+}
+
+.Cancel:hover{
+  transform: scale(1);
+  border: 2px solid #ff0202ba;
+  color: #ff0202ba;
+  background-image: none;
+}
+
+
+@media screen and (max-width:1000px) {
+  .BtnContainer {
+    display: flex;
+    column-gap: 35px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+  }
+  .Submit {
+    height: 70px;
+    width: 130px;
+    background-image: linear-gradient(to right top, #00c218, #01cc19, #03d51a, #05df1a, #07e91b);
+    border: none;
+    border-radius: 10px;
+  }
+  .Cancel {
+    height: 70px;
+    width: 130px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right top, #c70000, #d31a15, #de2a26, #e93836, #f44545);
+    border: none;
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media screen and (max-width:600px) {
+  .BtnContainer {
+    display: flex;
+    column-gap: 25px;
+    margin-top: 2.8%;
+    margin-bottom: 3%;
+  }
+  .Submit {
+    height: 50px;
+    width: 110px;
+    background-image: linear-gradient(to right top, #00c218, #01cc19, #03d51a, #05df1a, #07e91b);
+    border: none;
+    border-radius: 10px;
+  }
+  .Cancel {
+    height: 50px;
+    width: 110px;
+    border-radius: 10px;
+    background-image: linear-gradient(to right top, #c70000, #d31a15, #de2a26, #e93836, #f44545);
+    border: none;
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media screen and (max-width:370px){
+  .BtnContainer {
+  
+    display: flex;
+    column-gap: 25px;
+    margin-top: 2.8%;
+    margin-bottom: 3%;
+  }
 }
