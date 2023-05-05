@@ -43,7 +43,7 @@ const ContactDetails = ({ register, errors }) => {
         </div>
         <div>
           <label htmlFor="Emergency">Emergency Contact No. :</label>
-          <input type="text" name="Mobile" {...register("Mobile")} />
+          <input type="number" name="Mobile" {...register("Mobile")} />
           {errors.Mobile && <p style={{ color: "red" }}>{errors.Mobile.message}</p> }
         </div>
       </div>

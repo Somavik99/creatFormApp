@@ -3,7 +3,7 @@ import BloodGroup from "./BloodGroup";
 import "./otherD.css";
 // import Select from "react-select";
 
-const OtherDetails = ({ register }) => {
+const OtherDetails = ({ register,errors }) => {
   const [MultiSelect, setMultiSelect] = useState({
     NationSelect: "",
     Religion: "",
@@ -35,6 +35,7 @@ const OtherDetails = ({ register }) => {
             {...register("Occupation")}
             style={{ marginLeft: "8px", width: "200px", height: "30px" }}
           />
+          {errors.Occupation && <p>{errors.Occupation.message}</p> }
         </div>
         <div>
           <label htmlFor="">Religion:</label>

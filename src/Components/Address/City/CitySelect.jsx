@@ -11,8 +11,8 @@ const CitySelect = ({ register, errors }) => {
   return (
     <div>
       <select
-        name="CitySelect"
-        {...register("CitySelect")}
+        name="City"
+        {...register("City")}
         onChange={(e) => handleCity(e)}
         style={{ width: "200px" }}
       >
@@ -21,7 +21,7 @@ const CitySelect = ({ register, errors }) => {
         <option value="Kolkata">Kolkata</option>
         <option value="Other">Other</option>
       </select>
-      {errors.CitySelect && <p>{errors.CitySelect.message}</p>}
+      {errors.City && <p>{errors.City.message}</p>}
       <>
         {showInp === "Other" && (
           <>

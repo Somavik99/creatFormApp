@@ -28,15 +28,15 @@ const PersonalDetails = ({ register, errors }) => {
             Date of Birth or Age<span style={{ color: "red" }}>*</span>:
           </label>
           <input
-            type="text"
-            name="DobA"
-            {...register("DobA", {
+            type="Number"
+            name="Age"
+            {...register("Age", {
               valueAsNumber: true,
             })}
             placeholder="DD/MM/YYY or Age years"
           />
-          {errors.DobA && (
-            <p style={{ color: "red" }}>Specify Date of Birth or Age</p>
+          {errors.Age && (
+            <p style={{ color: "red" }}>{errors.Age.message}</p>
           )}
         </div>
         <div style={{ display: "flex" }}>
@@ -49,9 +49,9 @@ const PersonalDetails = ({ register, errors }) => {
           <label>
             Mobile<span style={{ color: "red" }}>*</span>:
           </label>
-          <input type="text" {...register("Mobile")} />
+          <input type="number" {...register("Mobile")} />
           {errors.Mobile && (
-            <p style={{ color: "red" }}>Mobile no. is required</p>
+            <p style={{ color: "red" }}>{errors.Mobile.message}</p>
           )}
         </div>
         <div style={{ display: "flex" }}>

@@ -1,4 +1,4 @@
-const StateSelect = () => {
+const StateSelect = ({register,errors}) => {
   const States = [
     { value: "Andhra Pradesh", label: "Andhra Pradesh" },
     { value: "Arunachal Pradesh", label: "Arunachal Pradesh" },
@@ -32,7 +32,7 @@ const StateSelect = () => {
   ];
   return (
     <div>
-      <select>
+      <select {...register("StateSelect")}>
         <option value={null}>{null}</option>
         {States.map((StateOpt, i) => {
           return (
@@ -42,6 +42,7 @@ const StateSelect = () => {
           );
         })}
       </select>
+      {errors.StateSelect && <p>{errors.StateSelect.message}</p>}
     </div>
   );
 };

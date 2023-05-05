@@ -17,7 +17,7 @@ const CountrySelect = ({ register, errors }) => {
     <div style={{ display: "flex" }}>
       <select
         onChange={(e) => HandleChange(e)}
-        {...register("CountrySelect")}
+        {...register("Country")}
         style={{ width: "150px", marginRight: "10px" }}
       >
         <option value={null}>{null}</option>
@@ -29,7 +29,7 @@ const CountrySelect = ({ register, errors }) => {
           );
         })}
       </select>
-      {errors.CountrySelect && <p>country is required</p>}
+      {errors.Country && <p>{errors.Country.message}</p>}
       <>
         {ShowInput === "NRI" ? (
           <div>

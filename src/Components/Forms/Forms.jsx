@@ -1,10 +1,10 @@
-// import ContactDetails from "../ContactDetails/ContactDetaisl";
+import ContactDetails from "../ContactDetails/ContactDetaisl";
 import PersonalDetails from "../PersonalDetails/PersonalDetails";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-// import Address from "../Address/Address";
-// import OtherDetails from "../OtherDetails/OtherDetails";
+import Address from "../Address/Address";
+import OtherDetails from "../OtherDetails/OtherDetails";
 import "./Forms.css"
 
 
@@ -13,11 +13,16 @@ const Forms = () => {
     Name: yup.string().required(),
     Foreign:yup.string().required(),
     Address: yup.string().required(),
+    StateSelect:yup.string().required(),
+    City:yup.string().required(),
+    Country: yup.string().required(),
+    Occupation: yup.string().required(),
     Sex:yup.string().required(),
-    adhaar:yup.number().required().positive().integer(),
-    PanIn:yup.number().required().positive().integer(),
+    adhaar:yup.string().max(12).required(),
+    PAN:yup.string().max(10).required(),
+    Pin:yup.number().required().positive().integer(),
     GuardianDetails: yup.string().required(),
-    DobA: yup.number().required().positive().integer(),
+    Age: yup.number().required().positive().integer(),
     Mobile: yup.number().required().positive().integer(),
     Email: yup.string().email().required(),
   });
@@ -43,7 +48,7 @@ const Forms = () => {
         <PersonalDetails register={register} errors={errors} />
 
       </div>
-      {/* <div>
+      <div>
         <ContactDetails register={register} errors={errors} />
       </div>
       <div>
@@ -51,7 +56,7 @@ const Forms = () => {
       </div>
       <div>
         <OtherDetails register={register} errors={errors} />
-      </div> */}
+      </div>
       <div style={{float:"right"}} className="BtnContainer">
         <button className="Cancel">CANCEL</button>
         <button type="submit" className="Submit" >SUBMIT</button>
