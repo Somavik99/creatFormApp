@@ -30,9 +30,9 @@ const ContactDetails = ({ register, errors }) => {
           <input 
             type="text"
             name="GuardianDetails"
-            {...register("GuardianDetails")}
+            {...register("GuardianDetails",{pattern: /^[a-zA-Z ]{8,20}$/ })}
           />
-          {errors.GuardianDetails && (
+          {errors.GuardianDetails?.type === "pattern" && (
             <p style={{ color: "red" }}>{errors.GuardianDetails.message}</p>
           )}
         </div>

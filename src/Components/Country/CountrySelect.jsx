@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CountrySelect = () => {
+const CountrySelect = ({ register }) => {
   const [ShowCountryInput, setShowCountryInput] = useState();
 
   const Options = [
@@ -16,9 +16,9 @@ const CountrySelect = () => {
   return (
     <div style={{ display: "flex" }}>
       <select
-      name="Country"
+        name="Country"
         onChange={(e) => HandleChange(e)}
-  
+        {...register("Country")}
         style={{ width: "150px", marginRight: "10px" }}
       >
         <option value={null}>{null}</option>
@@ -32,19 +32,15 @@ const CountrySelect = () => {
       </select>
 
       <>
-        {ShowCountryInput === "NRI" ? (
-          <>
-            <input
-              type="text"
-              placeholder="Enter details"
-              name="Foreign"
-       
-            />
-          
-          </>
-        ) : (
-          ""
-        )}
+        <>
+          <input
+            type="text"
+            placeholder="Enter details"
+            hidden = { ShowCountryInput == "India"}
+            name="Foreign"
+            {...register("Foreign")}
+          />
+        </>
       </>
     </div>
   );

@@ -12,25 +12,21 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
   return (
     <div style={{ display: "flex" }}>
       <select
-      value={GovtID}
+      name="SelectGovt"
+      {...register("SelectGovt")}
         onChange={(e) => ViewID(e)}
         style={{ marginRight: "5px", height: "35px" }}
       >
         <option value={null}>{null}</option>
-        <option value="Adhaar">Adhaar Card</option>
-        <option value="Pan">Pan Card</option>
+        <option value="Adhaar" name="Adhaar">Adhaar Card</option>
+        <option value="Pan" name="PAN" >Pan Card</option>
       </select>
-      <input
-        type="text"
-       name="GovtInput"
-        {...register("GovtInput")}
-      />
-      {errors.name && <p>{errors.name.message}</p>}
 
-      {/* {GovtID === "Adhaar" ? (
+
+      {GovtID === "Adhaar" ? (
         <div style={{display:"flex"}}>
           <input
-            type="number"
+            type="text"
             name="adhaar"
             {...register("adhaar")}
             placeholder="Enter Adhaar Number"
@@ -45,7 +41,7 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
       ) : GovtID === "Pan" ? (
         <div style={{ display: "flex" }}>
           <input
-            type="number"
+            type="text"
             name="PAN"
             placeholder="Enter Pan Number"
             style={{ height: "30px" }}
@@ -59,7 +55,7 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
         </div>
       ) : (
         ""
-      )} */}
+      )}
     </div>
   );
 };
