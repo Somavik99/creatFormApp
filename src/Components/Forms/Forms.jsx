@@ -9,11 +9,15 @@ import "./Forms.css";
 
 const Forms = () => {
   const ValidationSubmit = yup.object().shape({
-    Foreign:yup.string().notRequired(),
-    Name: yup.string().required(),
+    Foreign: yup.string().notRequired(),
+    Name: yup.string(/^[a-zA-Z ]{8,20}$/).required(),
     SelectGovt: yup.string().required(),
-    adhaar: yup.string().max(12,'Adhaar should be of 12 numbers').notRequired(),
-    PAN:yup.string().max(10,'Pan should be of 10 numbers').notRequired(),
+    Country:yup.string().notRequired(),
+    adhaar: yup
+      .string()
+      .max(12, "Adhaar should be of 12 numbers")
+      .notRequired(),
+    PAN: yup.string().max(10, "Pan should be of 10 numbers").notRequired(),
     Sex: yup.string().required(),
     GuardianDetails: yup.string().required("Guardian Details are required"),
     Age: yup.number().required().positive().integer(),
@@ -45,7 +49,7 @@ const Forms = () => {
       <h1 style={{ textDecorationLine: "underline" }}>
         Details Submission Form
       </h1>
-      <pre>{JSON.stringify(handleSubmit,2)}</pre>
+      <pre>{JSON.stringify(handleSubmit, 2)}</pre>
       <div>
         <PersonalDetails register={register} errors={errors} />
       </div>
@@ -53,7 +57,7 @@ const Forms = () => {
         <ContactDetails register={register} errors={errors} />
       </div>
       <div>
-        <Address register={register}  />
+        <Address register={register} />
       </div>
       <div>
         <OtherDetails register={register} />

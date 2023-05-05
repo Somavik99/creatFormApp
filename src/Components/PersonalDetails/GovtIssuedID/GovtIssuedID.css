@@ -1,0 +1,12 @@
+.GovtContainer{
+    display: flex;
+}
+
+@media screen and (max-width: 1000px){
+    .GovtContainer{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(1,1fr);
+    }
+}

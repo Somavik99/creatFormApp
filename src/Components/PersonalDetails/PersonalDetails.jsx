@@ -15,9 +15,9 @@ const PersonalDetails = ({ register, errors }) => {
           <input
             type="text"
             name="Name"
-            {...register("Name", { pattern: /^[a-zA-Z ]{8,20}$/ })}
+            {...register("Name")}
           />
-          {errors.Name?.type==="pattern" && (
+          {errors.Name  && (
             <p style={{ color: "red" }}>
               {errors.Name.message}
             </p>

@@ -10,3 +10,13 @@ p{
     margin: 0;
     padding: 0;
 }
+
+@media screen and (max-width:1000px) {
+    .PersonalContainer{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 10px;
+    }
+}

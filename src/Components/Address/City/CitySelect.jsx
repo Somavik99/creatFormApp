@@ -28,7 +28,7 @@ const CitySelect = ({register}) => {
             <input
               type="text"
               placeholder="Enter City/village/town"
-       
+       {...register("City")}
             />
            
           </>

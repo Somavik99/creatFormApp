@@ -3,10 +3,7 @@ import { useState } from "react";
 const CountrySelect = ({ register }) => {
   const [ShowCountryInput, setShowCountryInput] = useState();
 
-  const Options = [
-    { value: "India", label: "India" },
-    { value: "NRI", label: "NRI(Non Resident Indian)" },
-  ];
+
 
   const HandleChange = (e) => {
     const getCountryInput = e.target.value;
@@ -22,25 +19,21 @@ const CountrySelect = ({ register }) => {
         style={{ width: "150px", marginRight: "10px" }}
       >
         <option value={null}>{null}</option>
-        {Options.map((optC, indices) => {
-          return (
-            <option key={indices} value={optC.value}>
-              {optC.label}
-            </option>
-          );
-        })}
+       <option value="India">India</option>
+       <option value="NRI">NRI(Non Resident Indian)</option>
       </select>
 
       <>
-        <>
+        {ShowCountryInput === "NRI" ? (
           <input
             type="text"
             placeholder="Enter details"
-            hidden = { ShowCountryInput == "India"}
             name="Foreign"
             {...register("Foreign")}
           />
-        </>
+        ) : (
+          ""
+        )}
       </>
     </div>
   );

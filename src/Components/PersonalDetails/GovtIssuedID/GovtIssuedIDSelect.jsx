@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./GovtIssuedID.css";
 
 const GovtIssuedIDSelect = ({ register, errors }) => {
   const [GovtID, setGovtID] = useState();
@@ -10,21 +10,24 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div  className="GovtContainer">
       <select
-      name="SelectGovt"
-      {...register("SelectGovt")}
+        name="SelectGovt"
+        {...register("SelectGovt")}
         onChange={(e) => ViewID(e)}
         style={{ marginRight: "5px", height: "35px" }}
       >
         <option value={null}>{null}</option>
-        <option value="Adhaar" name="Adhaar">Adhaar Card</option>
-        <option value="Pan" name="PAN" >Pan Card</option>
+        <option value="Adhaar" name="Adhaar">
+          Adhaar Card
+        </option>
+        <option value="Pan" name="PAN">
+          Pan Card
+        </option>
       </select>
 
-
       {GovtID === "Adhaar" ? (
-        <div style={{display:"flex"}}>
+        <div style={{ display: "flex" }}>
           <input
             type="text"
             name="adhaar"
@@ -47,9 +50,9 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
             style={{ height: "30px" }}
             {...register("PAN", { maxLength: 10 })}
           />
-          {errors.PAN  && (
+          {errors.PAN && (
             <div style={{ color: "red", margin: "0", padding: "0" }}>
-              {errors.PAN.message } 
+              {errors.PAN.message}
             </div>
           )}
         </div>
