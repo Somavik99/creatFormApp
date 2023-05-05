@@ -3,17 +3,13 @@ import BloodGroup from "./BloodGroup";
 import "./otherD.css";
 // import Select from "react-select";
 
-const OtherDetails = ({register}) => {
-  const [MultiSelect, setMultiSelect] = useState({
-    NationSelect: "",
-  });
+const OtherDetails = ({ register }) => {
+  const [NationSelect, setNationSelect] = useState();
 
   const MultiChange = (e) => {
-    const { name, value } = e.target;
+    const getNation = e.target.value;
 
-    setMultiSelect(() => {
-      return { ...MultiSelect, [name]: value };
-    });
+    setNationSelect(getNation);
   };
 
   const optionsM = [
@@ -31,19 +27,18 @@ const OtherDetails = ({register}) => {
           <label htmlFor="">Occupation:</label>
           <input
             type="text"
-         {...register("Occupation")}
+            {...register("Occupation")}
             style={{ marginLeft: "8px", width: "200px", height: "30px" }}
           />
-          
         </div>
         <div>
           <label htmlFor="">Religion:</label>
           <select
             name="Religion"
-  
+            {...register("Religion")}
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
           >
-            <option defaultValue={MultiSelect} value={null}></option>
+            <option defaultValue={NationSelect} value={null}></option>
             <option value="Hindu">Hindu</option>
             <option value="Muslim">Muslim</option>
             <option value="Sikh">Sikh</option>
@@ -54,7 +49,7 @@ const OtherDetails = ({register}) => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <label htmlFor="MaritalStatus">Marital Status: </label>
 
-          <select name="Marital" >
+          <select name="Marital" {...register("Marital")}>
             <option value={null}>{null}</option>
             {optionsM.map((optM, ind) => (
               <option key={ind} value={optM.value}>
@@ -65,28 +60,24 @@ const OtherDetails = ({register}) => {
         </div>
         <div style={{ display: "flex" }}>
           <label htmlFor="BloodGroup">Blood Group:</label>
-          <BloodGroup  />
+          <BloodGroup register={register} />
         </div>
-        <div style={{ display: "flex" }}>
+        <div  className="NationalityContainer">
           <label htmlFor="Nationality">Nationality:</label>
           <select
             name="Nationality"
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
             onChange={(e) => MultiChange(e)}
-           
+            {...register("Nationality")}
           >
             <option placeholder="Enter Nationality" value={null}></option>
             <option value="Indian">Indian</option>
             <option value="Other">Other</option>
           </select>
-         
-          {MultiSelect.NationSelect === "Other" ? (
-         
+
+          {NationSelect === "Other" ? (
             <span>
-              <input
-                type="text"
-                placeholder="Please Specify"
-              />
+              <input type="text" placeholder="Please Specify" {...register("NationalityInput")}  style={{marginLeft:"8px"}}/>
             </span>
           ) : (
             ""

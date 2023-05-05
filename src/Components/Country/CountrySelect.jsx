@@ -7,7 +7,7 @@ const CountrySelect = ({ register }) => {
 
   const HandleChange = (e) => {
     const getCountryInput = e.target.value;
-    setShowCountryInput(getCountryInput);
+   return setShowCountryInput(getCountryInput);
   };
 
   return (
