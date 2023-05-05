@@ -11,12 +11,13 @@ const Forms = () => {
   const ValidationSubmit = yup.object().shape({
     Name: yup.string().required(),
     Foreign: yup.string().required(),
+    Country: yup.string().required(),
     Address: yup.string().required(),
     StateSelect: yup.string().required(),
     City: yup.string().required(),
-    Country: yup.string().required(),
     Occupation: yup.string().required(),
     Nationality: yup.string().required(),
+    specify_nationality:yup.string().required(),
     BloodGroup: yup.string().required(),
     Religion: yup.string().notRequired(),
     Marital: yup.string().notRequired(),
@@ -38,8 +39,9 @@ const Forms = () => {
   } = useForm({
     resolver: yupResolver(ValidationSubmit),
   });
-
+  
   const onSubmit = (data) => {
+    
     console.log(data);
 
     localStorage.setItem("data", JSON.stringify(data));

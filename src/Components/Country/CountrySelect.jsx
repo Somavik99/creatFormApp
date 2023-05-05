@@ -9,30 +9,31 @@ const CountrySelect = ({ register, errors }) => {
   ];
 
   const HandleChange = (e) => {
-    const getInput = e.target.value;
-    setShowCountryInput(getInput);
+    const getCountryInput = e.target.value;
+    setShowCountryInput(getCountryInput);
   };
 
   return (
     <div style={{ display: "flex" }}>
       <select
+      name="Country"
         onChange={(e) => HandleChange(e)}
         {...register("Country")}
         style={{ width: "150px", marginRight: "10px" }}
       >
         <option value={null}>{null}</option>
-        {Options.map((optC, ind) => {
+        {Options.map((optC, indices) => {
           return (
-            <option key={ind} value={optC.value}>
+            <option key={indices} value={optC.value}>
               {optC.label}
             </option>
           );
         })}
       </select>
-      {errors.Country && <p>{errors.Country.message}</p>}
+{errors.Country && <p>{errors.Country.message}</p> }
       <>
         {ShowCountryInput === "NRI" ? (
-          <div>
+          <>
             <input
               type="text"
               placeholder="Enter details"
@@ -42,7 +43,7 @@ const CountrySelect = ({ register, errors }) => {
             {errors.Foreign && (
               <p style={{ color: "red" }}>{errors.Foreign.message}</p>
             )}
-          </div>
+          </>
         ) : (
           ""
         )}

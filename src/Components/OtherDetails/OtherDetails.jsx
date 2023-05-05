@@ -3,10 +3,9 @@ import BloodGroup from "./BloodGroup";
 import "./otherD.css";
 // import Select from "react-select";
 
-const OtherDetails = ({ register,errors }) => {
+const OtherDetails = ({ register, errors }) => {
   const [MultiSelect, setMultiSelect] = useState({
     NationSelect: "",
-    Religion: "",
   });
 
   const MultiChange = (e) => {
@@ -35,14 +34,13 @@ const OtherDetails = ({ register,errors }) => {
             {...register("Occupation")}
             style={{ marginLeft: "8px", width: "200px", height: "30px" }}
           />
-          {errors.Occupation && <p>{errors.Occupation.message}</p> }
+          {errors.Occupation && <p>{errors.Occupation.message}</p>}
         </div>
         <div>
           <label htmlFor="">Religion:</label>
           <select
             name="Religion"
             {...register("Religion")}
-            onChange={(e) => MultiChange(e)}
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
           >
             <option defaultValue={MultiSelect} value={null}></option>
@@ -69,7 +67,7 @@ const OtherDetails = ({ register,errors }) => {
           <label htmlFor="BloodGroup">Blood Group:</label>
           <BloodGroup register={register} errors={errors} />
         </div>
-        <div  style={{display:"flex"}}>
+        <div style={{ display: "flex" }}>
           <label htmlFor="Nationality">Nationality:</label>
           <select
             name="Nationality"
@@ -81,11 +79,18 @@ const OtherDetails = ({ register,errors }) => {
             <option value="Indian">Indian</option>
             <option value="Other">Other</option>
           </select>
-          {errors.Nationality && <p>{errors.Nationality.message}</p> }
+          {errors.Nationality && <p>{errors.Nationality.message}</p>}
           {MultiSelect.NationSelect === "Other" ? (
+         
             <span>
-              <input type="text" placeholder="Please Specify" {...register("specify_nationality")} />
-              {errors.specify_nationality && <p>{errors.specify_nationality.message}</p> }
+              <input
+                type="text"
+                placeholder="Please Specify"
+                {...register("specify_nationality")}
+              />
+              {errors.specify_nationality && (
+                <p>{errors.specify_nationality.message}</p>
+              )}
             </span>
           ) : (
             ""

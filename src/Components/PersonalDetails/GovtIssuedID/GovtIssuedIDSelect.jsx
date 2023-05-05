@@ -24,7 +24,7 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
           <input
             type="number"
             name="adhaar"
-            {...register("adhaar", { maxLength: 12 })}
+            {...register("adhaar")}
             placeholder="Enter Adhaar Number"
             style={{ height: "30px" }}
           />
