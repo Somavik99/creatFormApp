@@ -1,25 +1,33 @@
 import { useState } from "react";
 
+
 const GovtIssuedIDSelect = ({ register, errors }) => {
   const [GovtID, setGovtID] = useState();
 
-  const getID = (e) => {
-    const getG = e.target.value;
-    setGovtID(getG);
+  const ViewID = (e) => {
+    const viewG = e.target.value;
+    setGovtID(viewG);
   };
 
   return (
     <div style={{ display: "flex" }}>
       <select
-        onChange={(e) => getID(e)}
+      value={GovtID}
+        onChange={(e) => ViewID(e)}
         style={{ marginRight: "5px", height: "35px" }}
       >
         <option value={null}>{null}</option>
         <option value="Adhaar">Adhaar Card</option>
         <option value="Pan">Pan Card</option>
       </select>
+      <input
+        type="text"
+       name="GovtInput"
+        {...register("GovtInput")}
+      />
+      {errors.name && <p>{errors.name.message}</p>}
 
-      {GovtID === "Adhaar" ? (
+      {/* {GovtID === "Adhaar" ? (
         <div style={{display:"flex"}}>
           <input
             type="number"
@@ -51,7 +59,7 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
         </div>
       ) : (
         ""
-      )}
+      )} */}
     </div>
   );
 };

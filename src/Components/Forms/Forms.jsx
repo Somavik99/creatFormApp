@@ -1,18 +1,17 @@
-import ContactDetails from "../ContactDetails/ContactDetaisl";
+import ContactDetails from "../ContactDetails/ContactDetails";
 import PersonalDetails from "../PersonalDetails/PersonalDetails";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import Address from "../Address/Address";
-import OtherDetails from "../OtherDetails/OtherDetails";
+// import Address from "../Address/Address";
+// import OtherDetails from "../OtherDetails/OtherDetails";
 import "./Forms.css";
 
 const Forms = () => {
   const ValidationSubmit = yup.object().shape({
     Name: yup.string().required(),
-   
     Sex: yup.string().required(),
-    adhaar: yup.string().max(12).required(),
+    Adhaar: yup.string().max(12).required(),
     PAN: yup.string().max(10).required(),
     GuardianDetails: yup.string().required("Guardian Details are required"),
     Age: yup.number().required().positive().integer(),
@@ -24,7 +23,9 @@ const Forms = () => {
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    formState:  
+  {  errors }
+    
   } = useForm({
     resolver: yupResolver(ValidationSubmit),
   });
@@ -45,18 +46,19 @@ const Forms = () => {
       <h1 style={{ textDecorationLine: "underline" }}>
         Details Submission Form
       </h1>
+      {/* <pre>{JSON.stringify(errors,2)}</pre> */}
       <div>
         <PersonalDetails register={register} errors={errors} />
       </div>
       <div>
         <ContactDetails register={register} errors={errors} />
       </div>
-      <div>
+      {/* <div>
         <Address  />
       </div>
       <div>
         <OtherDetails  />
-      </div>
+      </div> */}
       <div style={{ float: "right" }} className="BtnContainer">
         <button className="Cancel">CANCEL</button>
         <button type="submit" className="Submit">

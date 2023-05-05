@@ -88,7 +88,6 @@ const OtherDetails = () => {
                 placeholder="Please Specify"
            
               />
-           
             </span>
           ) : (
             ""
