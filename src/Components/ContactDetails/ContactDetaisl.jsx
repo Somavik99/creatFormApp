@@ -43,8 +43,8 @@ const ContactDetails = ({ register, errors }) => {
         </div>
         <div>
           <label htmlFor="Emergency">Emergency Contact No. :</label>
-          <input type="number" name="Mobile" {...register("Mobile")} />
-          {errors.Mobile && <p style={{ color: "red" }}>{errors.Mobile.message}</p> }
+          <input type="number" name="EmergencyMobile" {...register("EmergencyMobile")} />
+          {errors.EmergencyMobile && <p style={{ color: "red" }}>{errors.EmergencyMobile.message}</p> }
         </div>
       </div>
     </div>

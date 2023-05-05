@@ -1,16 +1,16 @@
 import { useState } from "react";
 
 const CountrySelect = ({ register, errors }) => {
-  const [ShowInput, setShowInput] = useState();
+  const [ShowCountryInput, setShowCountryInput] = useState();
 
   const Options = [
     { value: "India", label: "India" },
-    { value: "NRI", label: "NRI" },
+    { value: "NRI", label: "NRI(Non Resident Indian)" },
   ];
 
   const HandleChange = (e) => {
     const getInput = e.target.value;
-    setShowInput(getInput);
+    setShowCountryInput(getInput);
   };
 
   return (
@@ -21,9 +21,9 @@ const CountrySelect = ({ register, errors }) => {
         style={{ width: "150px", marginRight: "10px" }}
       >
         <option value={null}>{null}</option>
-        {Options.map((optC, indi) => {
+        {Options.map((optC, ind) => {
           return (
-            <option key={indi} value={optC.value}>
+            <option key={ind} value={optC.value}>
               {optC.label}
             </option>
           );
@@ -31,7 +31,7 @@ const CountrySelect = ({ register, errors }) => {
       </select>
       {errors.Country && <p>{errors.Country.message}</p>}
       <>
-        {ShowInput === "NRI" ? (
+        {ShowCountryInput === "NRI" ? (
           <div>
             <input
               type="text"
@@ -40,7 +40,7 @@ const CountrySelect = ({ register, errors }) => {
               {...register("Foreign")}
             />
             {errors.Foreign && (
-              <p style={{ color: "red" }}>This Field Required</p>
+              <p style={{ color: "red" }}>{errors.Foreign.message}</p>
             )}
           </div>
         ) : (

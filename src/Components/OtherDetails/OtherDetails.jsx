@@ -54,9 +54,9 @@ const OtherDetails = ({ register,errors }) => {
           </select>
         </div>
         <div style={{ display: "flex", justifyContent: "center" }}>
-          <label htmlFor="">Marital Status: </label>
+          <label htmlFor="MaritalStatus">Marital Status: </label>
 
-          <select name="Marital">
+          <select name="Marital" {...register("Marital")}>
             <option value={null}>{null}</option>
             {optionsM.map((optM, ind) => (
               <option key={ind} value={optM.value}>
@@ -66,23 +66,26 @@ const OtherDetails = ({ register,errors }) => {
           </select>
         </div>
         <div style={{ display: "flex" }}>
-          <label htmlFor="">Blood Group:</label>
-          <BloodGroup />
+          <label htmlFor="BloodGroup">Blood Group:</label>
+          <BloodGroup register={register} errors={errors} />
         </div>
         <div  style={{display:"flex"}}>
-          <label htmlFor="">Nationality:</label>
+          <label htmlFor="Nationality">Nationality:</label>
           <select
-            name="NationSelect"
+            name="Nationality"
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
             onChange={(e) => MultiChange(e)}
+            {...register("Nationality")}
           >
             <option placeholder="Enter Nationality" value={null}></option>
             <option value="Indian">Indian</option>
             <option value="Other">Other</option>
           </select>
+          {errors.Nationality && <p>{errors.Nationality.message}</p> }
           {MultiSelect.NationSelect === "Other" ? (
             <span>
-              <input type="text" placeholder="Please Specify" />
+              <input type="text" placeholder="Please Specify" {...register("specify_nationality")} />
+              {errors.specify_nationality && <p>{errors.specify_nationality.message}</p> }
             </span>
           ) : (
             ""

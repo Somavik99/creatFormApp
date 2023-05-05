@@ -20,7 +20,7 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
       </select>
 
       {GovtID === "Adhaar" ? (
-        <p style={{display:"flex"}}>
+        <div style={{display:"flex"}}>
           <input
             type="number"
             name="adhaar"
@@ -29,13 +29,13 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
             style={{ height: "30px" }}
           />
           {errors.adhaar && (
-            <p style={{ color: "red", height: "30px" }}>
+            <div style={{ color: "red", height: "30px" }}>
               {errors.adhaar.message}
-            </p>
+            </div>
           )}
-        </p>
+        </div>
       ) : GovtID === "Pan" ? (
-        <p style={{ display: "flex" }}>
+        <div style={{ display: "flex" }}>
           <input
             type="number"
             name="PAN"
@@ -44,11 +44,11 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
             {...register("PAN", { maxLength: 10 })}
           />
           {errors.PAN  && (
-            <p style={{ color: "red", margin: "0", padding: "0" }}>
+            <div style={{ color: "red", margin: "0", padding: "0" }}>
               {errors.PAN.message } 
-            </p>
+            </div>
           )}
-        </p>
+        </div>
       ) : (
         ""
       )}

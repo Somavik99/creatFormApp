@@ -1,9 +1,9 @@
 
 
-const BloodGroup = () => {
+const BloodGroup = ({register,errors}) => {
   return (
     <div>
-    <select name="" id="" style={{ marginLeft: "8px", maxWidth: "250px", height: "35px" }}>
+    <select name="BloodGroup" {...register("BloodGroup")} style={{ marginLeft: "8px", maxWidth: "250px", height: "35px" }}>
     <option value={null}></option>
       <option value="A+">A RhD positive (A+)</option>
       <option value="A-">A RhD negative (A-)</option>
@@ -14,6 +14,7 @@ const BloodGroup = () => {
       <option value="AB+">AB RhD positive (AB+)</option>
       <option value="AB-">AB RhD negative (AB-)</option>
     </select>
+    {errors.BloodGroup && <p>{errors.BloodGroup.message}</p> }
   </div>
   )
 }
