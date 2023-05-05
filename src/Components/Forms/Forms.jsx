@@ -10,22 +10,11 @@ import "./Forms.css";
 const Forms = () => {
   const ValidationSubmit = yup.object().shape({
     Name: yup.string().required(),
-    Foreign: yup.string().required(),
-    Country: yup.string().required(),
-    Address: yup.string().required(),
-    StateSelect: yup.string().required(),
-    City: yup.string().required(),
-    Occupation: yup.string().required(),
-    Nationality: yup.string().required(),
-    specify_nationality:yup.string().required(),
-    BloodGroup: yup.string().required(),
-    Religion: yup.string().notRequired(),
-    Marital: yup.string().notRequired(),
+   
     Sex: yup.string().required(),
     adhaar: yup.string().max(12).required(),
     PAN: yup.string().max(10).required(),
-    Pin: yup.number().required().positive().integer(),
-    GuardianDetails: yup.string().required(),
+    GuardianDetails: yup.string().required("Guardian Details are required"),
     Age: yup.number().required().positive().integer(),
     Mobile: yup.string().max(10).required(),
     EmergencyMobile: yup.string().max(10).required(),
@@ -63,10 +52,10 @@ const Forms = () => {
         <ContactDetails register={register} errors={errors} />
       </div>
       <div>
-        <Address register={register} errors={errors} />
+        <Address  />
       </div>
       <div>
-        <OtherDetails register={register} errors={errors} />
+        <OtherDetails  />
       </div>
       <div style={{ float: "right" }} className="BtnContainer">
         <button className="Cancel">CANCEL</button>

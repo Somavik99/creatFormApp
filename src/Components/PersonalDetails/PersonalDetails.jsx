@@ -19,7 +19,7 @@ const PersonalDetails = ({ register, errors }) => {
           />
           {errors.Name && (
             <p style={{ color: "red" }}>
-              Name field is required. Enter valid name
+              {errors.Name.message}
             </p>
           )}
         </div>

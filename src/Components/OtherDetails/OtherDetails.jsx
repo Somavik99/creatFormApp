@@ -3,7 +3,7 @@ import BloodGroup from "./BloodGroup";
 import "./otherD.css";
 // import Select from "react-select";
 
-const OtherDetails = ({ register, errors }) => {
+const OtherDetails = () => {
   const [MultiSelect, setMultiSelect] = useState({
     NationSelect: "",
   });
@@ -31,16 +31,16 @@ const OtherDetails = ({ register, errors }) => {
           <label htmlFor="">Occupation:</label>
           <input
             type="text"
-            {...register("Occupation")}
+         
             style={{ marginLeft: "8px", width: "200px", height: "30px" }}
           />
-          {errors.Occupation && <p>{errors.Occupation.message}</p>}
+          
         </div>
         <div>
           <label htmlFor="">Religion:</label>
           <select
             name="Religion"
-            {...register("Religion")}
+  
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
           >
             <option defaultValue={MultiSelect} value={null}></option>
@@ -54,7 +54,7 @@ const OtherDetails = ({ register, errors }) => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <label htmlFor="MaritalStatus">Marital Status: </label>
 
-          <select name="Marital" {...register("Marital")}>
+          <select name="Marital" >
             <option value={null}>{null}</option>
             {optionsM.map((optM, ind) => (
               <option key={ind} value={optM.value}>
@@ -65,7 +65,7 @@ const OtherDetails = ({ register, errors }) => {
         </div>
         <div style={{ display: "flex" }}>
           <label htmlFor="BloodGroup">Blood Group:</label>
-          <BloodGroup register={register} errors={errors} />
+          <BloodGroup  />
         </div>
         <div style={{ display: "flex" }}>
           <label htmlFor="Nationality">Nationality:</label>
@@ -73,24 +73,22 @@ const OtherDetails = ({ register, errors }) => {
             name="Nationality"
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
             onChange={(e) => MultiChange(e)}
-            {...register("Nationality")}
+           
           >
             <option placeholder="Enter Nationality" value={null}></option>
             <option value="Indian">Indian</option>
             <option value="Other">Other</option>
           </select>
-          {errors.Nationality && <p>{errors.Nationality.message}</p>}
+         
           {MultiSelect.NationSelect === "Other" ? (
          
             <span>
               <input
                 type="text"
                 placeholder="Please Specify"
-                {...register("specify_nationality")}
+           
               />
-              {errors.specify_nationality && (
-                <p>{errors.specify_nationality.message}</p>
-              )}
+           
             </span>
           ) : (
             ""

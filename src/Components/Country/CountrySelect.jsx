@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CountrySelect = ({ register, errors }) => {
+const CountrySelect = () => {
   const [ShowCountryInput, setShowCountryInput] = useState();
 
   const Options = [
@@ -18,7 +18,7 @@ const CountrySelect = ({ register, errors }) => {
       <select
       name="Country"
         onChange={(e) => HandleChange(e)}
-        {...register("Country")}
+  
         style={{ width: "150px", marginRight: "10px" }}
       >
         <option value={null}>{null}</option>
@@ -30,7 +30,7 @@ const CountrySelect = ({ register, errors }) => {
           );
         })}
       </select>
-{errors.Country && <p>{errors.Country.message}</p> }
+
       <>
         {ShowCountryInput === "NRI" ? (
           <>
@@ -38,11 +38,9 @@ const CountrySelect = ({ register, errors }) => {
               type="text"
               placeholder="Enter details"
               name="Foreign"
-              {...register("Foreign")}
+       
             />
-            {errors.Foreign && (
-              <p style={{ color: "red" }}>{errors.Foreign.message}</p>
-            )}
+          
           </>
         ) : (
           ""
