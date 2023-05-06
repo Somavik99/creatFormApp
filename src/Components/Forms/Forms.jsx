@@ -55,6 +55,12 @@ const Forms = () => {
     "City",
     "Country",
     "Pin",
+    "Occupation",
+    "Religion",
+    "Marital",
+    "BloodGroup",
+    "NationalityInput",
+   " PAN"
   ];
   const onSubmit = async (data) => {
     console.log(data);
@@ -87,6 +93,7 @@ const Forms = () => {
           DateOfBirthOrAge={DetailsP[2]}
           SelectGovtID={DetailsP[3]}
           Sex={DetailsP[4]}
+          PAN = {DetailsP[20]}
         />
       </div>
       <div>
@@ -110,7 +117,14 @@ const Forms = () => {
         />
       </div>
       <div>
-        <OtherDetails register={register} />
+        <OtherDetails
+          Occupation={DetailsP[14]}
+          Religion={DetailsP[15]}
+          Marital={DetailsP[16]}
+          BloodGroups={DetailsP[17]}
+          NationalityInput={DetailsP[19]}
+          register={register}
+        />
       </div>
       <div style={{ float: "right" }} className="BtnContainer">
         <button className="Cancel">CANCEL</button>

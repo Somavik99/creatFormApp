@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./GovtIssuedID.css";
 
-const GovtIssuedIDSelect = ({ register, errors,SelectGovtID,Adhaar }) => {
+const GovtIssuedIDSelect = ({ register, errors,SelectGovtID,Adhaar,PAN }) => {
   const [GovtID, setGovtID] = useState();
 
   const ViewID = (e) => {
@@ -45,10 +45,10 @@ const GovtIssuedIDSelect = ({ register, errors,SelectGovtID,Adhaar }) => {
         <div style={{ display: "flex" }}>
           <input
             type="text"
-            name="PAN"
+            name={PAN}
             placeholder="Enter Pan Number"
             style={{ height: "30px" }}
-            {...register("PAN", { maxLength: 10 })}
+            {...register(PAN)}
           />
           {errors.PAN && (
             <div style={{ color: "red", margin: "0", padding: "0" }}>

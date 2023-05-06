@@ -3,7 +3,7 @@ import BloodGroup from "./BloodGroup";
 import "./otherD.css";
 // import Select from "react-select";
 
-const OtherDetails = ({ register, }) => {
+const OtherDetails = ({ register,Occupation,Religion,Marital,BloodGroups,NationalityInput }) => {
   const [NationSelect, setNationSelect] = useState();
 
   const MultiChange = (e) => {
@@ -27,15 +27,15 @@ const OtherDetails = ({ register, }) => {
           <label htmlFor="">Occupation:</label>
           <input
             type="text"
-            {...register("Occupation")}
+            {...register(Occupation)}
             style={{ marginLeft: "8px", width: "200px", height: "30px" }}
           />
         </div>
         <div>
           <label htmlFor="">Religion:</label>
           <select
-            name="Religion"
-            {...register("Religion")}
+            name={Religion}
+            {...register(Religion)}
             style={{ marginLeft: "8px", width: "200px", height: "35px" }}
           >
             <option value={null}></option>
@@ -49,7 +49,7 @@ const OtherDetails = ({ register, }) => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <label htmlFor="MaritalStatus">Marital Status: </label>
 
-          <select name="Marital" {...register("Marital")}>
+          <select name={Marital} {...register(Marital)}>
             <option value={null}>{null}</option>
             {optionsM.map((optM, ind) => (
               <option key={ind} value={optM.value}>
@@ -60,7 +60,7 @@ const OtherDetails = ({ register, }) => {
         </div>
         <div style={{ display: "flex" }}>
           <label htmlFor="BloodGroup">Blood Group:</label>
-          <BloodGroup register={register} />
+          <BloodGroup  BloodGroups={BloodGroups} register={register} />
         </div>
         <div  className="NationalityContainer">
           <label htmlFor="Nationality">Nationality:</label>
@@ -76,7 +76,7 @@ const OtherDetails = ({ register, }) => {
 
           {NationSelect === "Other" && 
             <span>
-              <input type="text" placeholder="Please Specify" {...register("NationalityInput")}  style={{marginLeft:"8px"}}/>
+              <input type="text" placeholder="Please Specify" {...register(NationalityInput)}  style={{marginLeft:"8px"}}/>
             </span>}
          
         </div>
