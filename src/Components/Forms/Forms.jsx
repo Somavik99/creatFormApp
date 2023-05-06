@@ -8,7 +8,7 @@ import OtherDetails from "../OtherDetails/OtherDetails";
 import "./Forms.css";
 import axios from "axios";
 
-const url = "http://localhost:8080/form";
+const url = "http://localhost:8080/forms";
 
 const Forms = () => {
   const ValidationSubmit = yup.object().shape({
@@ -60,17 +60,20 @@ const Forms = () => {
     "Marital",
     "BloodGroup",
     "NationalityInput",
-   " PAN"
+    " PAN",
+    "Mobile"
   ];
   const onSubmit = async (data) => {
     console.log(data);
     try {
-      const res = await axios.post(url, {
-        [DetailsP]: DetailsP,
+      const res = await axios.post(url, JSON.stringify(data), {
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
       console.log(res);
     } catch (error) {
-      console.log(error);
+      console.log(error.response.data);
     }
   };
 
@@ -93,7 +96,8 @@ const Forms = () => {
           DateOfBirthOrAge={DetailsP[2]}
           SelectGovtID={DetailsP[3]}
           Sex={DetailsP[4]}
-          PAN = {DetailsP[20]}
+          PAN={DetailsP[20]}
+          Mobile={DetailsP[21]}
         />
       </div>
       <div>

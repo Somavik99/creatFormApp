@@ -3,7 +3,7 @@ import GovtIssuedID from "./GovtIssuedID/GovtIssuedIDSelect";
 import "./PersonalDetails.css";
 import SexSelect from "./SexSelect";
 
-const PersonalDetails = ({ register, errors,Name ,DateOfBirthOrAge,Adhaar,SelectGovtID,Sex,PAN}) => {
+const PersonalDetails = ({ register, errors,Name ,DateOfBirthOrAge,Adhaar,SelectGovtID,Sex,PAN,Mobile}) => {
   return (
     <div >
       <h3 style={{ textDecorationLine: "underline" }}>Personal Details</h3>
@@ -45,9 +45,9 @@ const PersonalDetails = ({ register, errors,Name ,DateOfBirthOrAge,Adhaar,Select
         </div>
         <div>
           <label>
-            Mobile<span style={{ color: "red" }}>*</span>:
+            MobileNo.<span style={{ color: "red" }}>*</span>:
           </label>
-          <input type="number" {...register("Mobile")} />
+          <input type="number" name={Mobile} {...register("Mobile")} />
           {errors.Mobile && (
             <p style={{ color: "red" }}>{errors.Mobile.message}</p>
           )}
