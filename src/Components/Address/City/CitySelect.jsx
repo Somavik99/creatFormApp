@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CitySelect = ({register}) => {
+const CitySelect = ({register,City}) => {
   const [showInp, setShowInp] = useState();
 
   const handleCity = (e) => {
@@ -11,8 +11,8 @@ const CitySelect = ({register}) => {
   return (
     <div>
       <select
-        name="City"
-       {...register("City")}
+        name={City}
+       {...register(City)}
         onChange={(e) => handleCity(e)}
         style={{ width: "200px" }}
       >

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./GovtIssuedID.css";
 
-const GovtIssuedIDSelect = ({ register, errors }) => {
+const GovtIssuedIDSelect = ({ register, errors,SelectGovtID,Adhaar }) => {
   const [GovtID, setGovtID] = useState();
 
   const ViewID = (e) => {
@@ -12,8 +12,8 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
   return (
     <div  className="GovtContainer">
       <select
-        name="SelectGovt"
-        {...register("SelectGovt")}
+        name={SelectGovtID}
+        {...register(SelectGovtID)}
         onChange={(e) => ViewID(e)}
         style={{ marginRight: "5px", height: "35px" }}
       >
@@ -30,8 +30,8 @@ const GovtIssuedIDSelect = ({ register, errors }) => {
         <div style={{ display: "flex" }}>
           <input
             type="text"
-            name="adhaar"
-            {...register("adhaar")}
+            name={Adhaar}
+            {...register(Adhaar)}
             placeholder="Enter Adhaar Number"
             style={{ height: "30px" }}
           />

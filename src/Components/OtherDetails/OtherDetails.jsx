@@ -3,7 +3,7 @@ import BloodGroup from "./BloodGroup";
 import "./otherD.css";
 // import Select from "react-select";
 
-const OtherDetails = ({ register }) => {
+const OtherDetails = ({ register, }) => {
   const [NationSelect, setNationSelect] = useState();
 
   const MultiChange = (e) => {

@@ -3,9 +3,9 @@ import GovtIssuedID from "./GovtIssuedID/GovtIssuedIDSelect";
 import "./PersonalDetails.css";
 import SexSelect from "./SexSelect";
 
-const PersonalDetails = ({ register, errors }) => {
+const PersonalDetails = ({ register, errors,Name ,DateOfBirthOrAge,Adhaar,SelectGovtID,Sex}) => {
   return (
-    <div>
+    <div >
       <h3 style={{ textDecorationLine: "underline" }}>Personal Details</h3>
       <div className="PersonalContainer">
         <div>
@@ -14,8 +14,8 @@ const PersonalDetails = ({ register, errors }) => {
           </label>
           <input
             type="text"
-            name="Name"
-            {...register("Name")}
+            name={Name}
+            {...register(Name)}
           />
           {errors.Name  && (
             <p style={{ color: "red" }}>
@@ -29,8 +29,8 @@ const PersonalDetails = ({ register, errors }) => {
           </label>
           <input
             type="text"
-            name=" DateOfBirthOrAge"
-            {...register(" DateOfBirthOrAge")}
+            name={ DateOfBirthOrAge}
+            {...register(DateOfBirthOrAge)}
             placeholder="DD/MM/YYY or Age years"
           />
           {errors.DateOfBirthOrAge && (
@@ -41,7 +41,7 @@ const PersonalDetails = ({ register, errors }) => {
           <label>
             Sex<span style={{ color: "red" }}>*</span>:
           </label>
-          <SexSelect register={register} errors={errors} />
+          <SexSelect Sex={Sex} register={register} errors={errors} />
         </div>
         <div>
           <label>
@@ -56,7 +56,7 @@ const PersonalDetails = ({ register, errors }) => {
           <label>
             Govt. Issued ID<span style={{ color: "red" }}>*</span>:
           </label>
-          <GovtIssuedID register={register} errors={errors} />
+          <GovtIssuedID Adhaar={Adhaar} SelectGovtID={SelectGovtID} register={register} errors={errors} />
         </div>
       </div>
     </div>

@@ -6,6 +6,9 @@ import * as yup from "yup";
 import Address from "../Address/Address";
 import OtherDetails from "../OtherDetails/OtherDetails";
 import "./Forms.css";
+import axios from "axios";
+
+const url = "http://localhost:8080/form";
 
 const Forms = () => {
   const ValidationSubmit = yup.object().shape({
@@ -23,7 +26,7 @@ const Forms = () => {
     GuardianDetails: yup.string().required("Guardian Details are required"),
     DateOfBirthOrAge: yup
       .string()
-      .required("Date of Birth or Age in years is required"),
+      .notRequired("Date of Birth or Age in years is required"),
     Mobile: yup.string().max(10).required(),
     EmergencyMobile: yup.string().max(10).required(),
     Email: yup.string().email().required(),
@@ -37,10 +40,32 @@ const Forms = () => {
     resolver: yupResolver(ValidationSubmit),
   });
 
-  const onSubmit = (data) => {
+  const DetailsP = [
+    "Name",
+    "adhaar",
+    "DateOfBirthOrAge",
+    "SelectGovt",
+    "Sex",
+    "EmergencyMobile",
+    "GuardianDetails",
+    "select",
+    "Email",
+    "Address",
+    "StateSelect",
+    "City",
+    "Country",
+    "Pin",
+  ];
+  const onSubmit = async (data) => {
     console.log(data);
-
-    localStorage.setItem("data", JSON.stringify(data));
+    try {
+      const res = await axios.post(url, {
+        [DetailsP]: DetailsP,
+      });
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -52,15 +77,37 @@ const Forms = () => {
       <h1 style={{ textDecorationLine: "underline" }}>
         Details Submission Form
       </h1>
-      <pre>{JSON.stringify(errors, 2)}</pre>
+      {/* <pre>{JSON.stringify(errors, 2)}</pre> */}
       <div>
-        <PersonalDetails register={register} errors={errors} />
+        <PersonalDetails
+          register={register}
+          errors={errors}
+          Name={DetailsP[0]}
+          Adhaar={DetailsP[1]}
+          DateOfBirthOrAge={DetailsP[2]}
+          SelectGovtID={DetailsP[3]}
+          Sex={DetailsP[4]}
+        />
       </div>
       <div>
-        <ContactDetails register={register} errors={errors} />
+        <ContactDetails
+          EmergencyMobile={DetailsP[5]}
+          GuardianDetails={DetailsP[6]}
+          select={DetailsP[7]}
+          Email={DetailsP[8]}
+          register={register}
+          errors={errors}
+        />
       </div>
       <div>
-        <Address register={register} />
+        <Address
+          Address={DetailsP[9]}
+          StateSelecting={DetailsP[10]}
+          City={DetailsP[11]}
+          Country={DetailsP[12]}
+          Pin={DetailsP[13]}
+          register={register}
+        />
       </div>
       <div>
         <OtherDetails register={register} />

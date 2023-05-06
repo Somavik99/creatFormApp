@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CountrySelect = ({ register }) => {
+const CountrySelect = ({ register,Country }) => {
   const [ShowCountryInput, setShowCountryInput] = useState();
 
 
@@ -13,9 +13,9 @@ const CountrySelect = ({ register }) => {
   return (
     <div style={{ display: "flex" }}>
       <select
-        name="Country"
+        name={Country}
         onChange={(e) => HandleChange(e)}
-        {...register("Country")}
+        {...register(Country)}
         style={{ width: "150px", marginRight: "10px" }}
       >
         <option value={null}>{null}</option>

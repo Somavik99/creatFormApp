@@ -1,6 +1,6 @@
 import "./Contact.css";
 
-const ContactDetails = ({ register, errors }) => {
+const ContactDetails = ({ register, errors,EmergencyMobile,Email,select,GuardianDetails }) => {
   const options = [
     { value: "Mr.", label: "Mr." },
     { value: "Mrs.", label: "Mrs." },
@@ -13,8 +13,8 @@ const ContactDetails = ({ register, errors }) => {
         <div>
           <label htmlFor="">Guardian Details:</label>
           <select
-            name="select"
-            {...register("select")}
+            name={select}
+            {...register(select)}
             style={{ marginRight: "10px" }}
           >
             <option value={null}></option>
@@ -29,21 +29,21 @@ const ContactDetails = ({ register, errors }) => {
 
           <input 
             type="text"
-            name="GuardianDetails"
-            {...register("GuardianDetails",{pattern: /^[a-zA-Z ]{8,20}$/ })}
+            name={GuardianDetails}
+            {...register(GuardianDetails)}
           />
-          {errors.GuardianDetails?.type === "pattern" && (
+          {errors.GuardianDetails && (
             <p style={{ color: "red" }}>{errors.GuardianDetails.message}</p>
           )}
         </div>
         <div>
           <label htmlFor="Email">Email:</label>
-          <input type="email" name="Email" {...register("Email")} />
+          <input type="email" name={Email} {...register(Email)} />
           {errors.Email && <p style={{ color: "red" }}>{errors.Email.message}</p>}
         </div>
         <div>
           <label htmlFor="Emergency">Emergency Contact No. :</label>
-          <input type="number" name="EmergencyMobile" {...register("EmergencyMobile")} />
+          <input type="number" name={EmergencyMobile} {...register(EmergencyMobile)} />
           {errors.EmergencyMobile && <p style={{ color: "red" }}>{errors.EmergencyMobile.message}</p> }
         </div>
       </div>

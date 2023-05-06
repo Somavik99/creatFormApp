@@ -1,36 +1,36 @@
 import CountrySelect from "../Country/CountrySelect";
 import "./Address.css";
 import CitySelect from "./City/CitySelect";
-import StateSelect from "./State/StateSelect";
+import StateSelects from "./State/StateSelects";
 
-const Address = ({register}) => {
+const Address = ({register,Address,StateSelecting,City,Country,Pin}) => {
   return (
     <div>
       <h3 style={{textDecorationLine:"underline"}}>Address Details</h3>
       <div className="AddressD">
         <div>
           <label htmlFor="Address">Address:</label>
-          <input type="text" name="Address"  {...register("Address")} />
+          <input type="text" name={Address}  {...register(Address)} />
           
         </div>
         <div style={{display:"flex"}}>
           <label htmlFor="State">State:</label>
-          <StateSelect register={register} />
+          <StateSelects StateSelecting={StateSelecting} register={register} />
         </div>
         <div>
           <label htmlFor="City">City:</label>
-          <CitySelect register={register} />
+          <CitySelect City={City} register={register} />
         </div>
         <div style={{display:"flex"}}>
           <label htmlFor="Country">Country:</label>
-          <CountrySelect register={register} />
+          <CountrySelect Country={Country} register={register} />
         </div>
         <div>
           <label htmlFor="">Pin Code:</label>
           <input
             type="number"
-            name="Pin"
-            {...register("Pin")} 
+            name={Pin}
+            {...register(Pin)} 
           />
          
         </div>

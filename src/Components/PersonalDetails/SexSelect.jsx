@@ -1,7 +1,7 @@
-const SexSelect = ({register,errors}) => {
+const SexSelect = ({register,errors,Sex}) => {
   return (
     <div>
-      <select name="Sex" {...register("Sex")} placeholder="Select Sex">
+      <select name={Sex} {...register(Sex)} placeholder="Select Sex">
         <option value={null}></option>
         <option value="M">Male</option>
         <option value="F">Female</option>
