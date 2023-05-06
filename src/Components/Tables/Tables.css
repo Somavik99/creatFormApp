@@ -1,0 +1,67 @@
+.TableContainer {
+  background-image: linear-gradient(
+    to right top,
+    #ececec,
+    #e6e6e6,
+    #e0e0e0,
+    #dadada,
+    #d4d4d4
+  );
+  border-collapse: collapse;
+  border-radius: 10px ;
+  box-shadow: 0.4rem 0.4rem 0.4rem 0.4rem rgba(68, 65, 65, 0.248);
+  overflow: hidden;
+  margin: 25px;
+  font-size: 0.9em;
+  max-width: 480px;
+  border: none;
+  outline: none;
+  padding: 1%;
+}
+
+.TableContainer thead tr {
+  border-radius: 1em;
+  background-color: #009879;
+  font-weight: bold;
+}
+
+.TableContainer th,
+.TableContainer td {
+  padding: 12px 15px;
+}
+
+.TableContainer tbody tr {
+  border-bottom: 1px solid #c6c6c6;
+transition: 0.4s ease-out;
+}
+
+
+
+ .TableContainer tbody tr  :hover{
+   transform: scale(1.1);
+   background-color: #009879;
+   color: white;
+   text-decoration: underline;
+   border-radius: 8px;
+   overflow: hidden;
+  }
+
+.TableContainer tbody tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+
+.TableContainer tbody tr:last-of-type{
+    border-bottom: 2px solid #009879;
+}
+
+.MainContainer {
+  background-image: linear-gradient(
+    to right top,
+    #ececec,
+    #e6e6e6,
+    #e0e0e0,
+    #dadada,
+    #d4d4d4
+  );
+  padding: 2%;
+}
