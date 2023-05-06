@@ -67,7 +67,7 @@ const Forms = () => {
     "Mobile",
   ];
   const onSubmit = async (data) => {
-    console.log(data);
+    
     try {
       const res = await axios.post(url, JSON.stringify(data), {
         headers: {

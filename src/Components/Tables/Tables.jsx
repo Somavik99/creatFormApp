@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import "./Tables.css";
 import Navbar from "./NavBar/Navbar";
 import Skeleton from "react-loading-skeleton";
+import { CiSearch } from "react-icons/ci";
 
 const Tables = () => {
   const [ApiFetch, setApiFetch] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [SearchState, setSearchState] = useState("");
 
   const ViewFormData = async () => {
     await axios
@@ -26,6 +28,20 @@ const Tables = () => {
     }, 4000);
   }, []);
 
+  const keys = ["Name", "adhaar", "PAN"];
+
+  const Search = (data) => {
+    return data.filter((response) => {
+      keys.some((key) => response[key].toLowerCase().includes(SearchState));
+    });
+  };
+
+  const ViewSearch = Search(ApiFetch);
+
+  const SearchChange = (e) => {
+    return setSearchState(e.target.value);
+  };
+
   return (
     <div
       style={{
@@ -38,6 +54,30 @@ const Tables = () => {
         style={{ width: "fit-content", height: "100%", marginTop: "9%" }}
         className="MainContainer"
       >
+        <div>
+          {<CiSearch />}
+          <input
+            type="text"
+            value={SearchState}
+            placeholder="Search Data..."
+            onChange={SearchChange}
+          />
+          {SearchState ? (
+            <div>
+              {ViewSearch.map((SearchKey, i) => {
+                return (
+                  <p key={i}>
+                    <span>{SearchKey.Name}</span>
+                    <p>{SearchKey.adhaar}</p>
+                    <p>{SearchKey.PAN}</p>
+                  </p>
+                );
+              })}
+            </div>
+          ) : (
+            ""
+          )}
+        </div>
         <Navbar />
 
         {isLoading ? (
