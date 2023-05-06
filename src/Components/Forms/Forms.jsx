@@ -7,6 +7,7 @@ import Address from "../Address/Address";
 import OtherDetails from "../OtherDetails/OtherDetails";
 import "./Forms.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const url = "http://localhost:8080/forms";
 
@@ -31,6 +32,8 @@ const Forms = () => {
     EmergencyMobile: yup.string().max(10).required(),
     Email: yup.string().email().required(),
   });
+
+  const navigateLink = useNavigate();
 
   const {
     handleSubmit,
@@ -61,7 +64,7 @@ const Forms = () => {
     "BloodGroup",
     "NationalityInput",
     " PAN",
-    "Mobile"
+    "Mobile",
   ];
   const onSubmit = async (data) => {
     console.log(data);
@@ -75,6 +78,7 @@ const Forms = () => {
     } catch (error) {
       console.log(error.response.data);
     }
+    navigateLink("/");
   };
 
   return (
@@ -131,7 +135,14 @@ const Forms = () => {
         />
       </div>
       <div style={{ float: "right" }} className="BtnContainer">
-        <button className="Cancel">CANCEL</button>
+        <button
+          className="Cancel"
+          onClick={() => {
+            navigateLink("/");
+          }}
+        >
+          CANCEL
+        </button>
         <button type="submit" className="Submit">
           SUBMIT
         </button>
